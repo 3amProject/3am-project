@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './sideBar.module.css';
 
 const SideBar = ({onClick, isOpen}) => {
@@ -9,11 +10,17 @@ const SideBar = ({onClick, isOpen}) => {
             </button>
         </div>
         <div className={styles.buttons}>
-            <button className={styles.button}>회원 가입</button>
-            <button className={styles.button}>로그인</button>
+            <Link to="/join">
+                <button className={styles.button}>회원 가입</button>
+            </Link>
+            <Link to="/login">
+                <button className={styles.button}>로그인</button>
+            </Link>
         </div>
         <ul className={styles.ul}>
-            <li className={styles.li}>메뉴</li>
+            <Link to="/">
+                <li className={styles.li}>메뉴</li>
+            </Link>
             <li className={styles.li}>고객센터</li>
         </ul>
         </section>

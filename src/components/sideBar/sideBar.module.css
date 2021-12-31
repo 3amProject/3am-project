@@ -2,7 +2,7 @@
   position: absolute;
   left: 0;
   height: 100%;
-  width: 25em;
+  width: 20em;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -36,9 +36,6 @@
   border-radius: 0.3em;
   border: none;
 }
-.button:hover {
-  cursor: pointer;
-}
 .ul {
   width: 80%;
 }
@@ -48,6 +45,21 @@
   padding-top: 1em;
   border-top: 1px solid black;
 }
+
+.button:hover,
+.closeBtn:hover,
+.li:hover {
+  cursor: pointer;
+}
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: smallScreen) {
+  .sideBar {
+    width: 10em;
+  }
+  .button {
+    width: 5em;
+  }
 }
