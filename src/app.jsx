@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./routes/home/home";
 import JoinPage from "./routes/joinPage/joinPage";
 import LoginPage from "./routes/loginPage/loginPage";
-import Profile from "./routes/profile/profile";
+import ProfilePage from "./routes/profilePage/profilePage";
 
 function App() {
   const [isOpen, setState] = useState(false);
@@ -21,8 +21,11 @@ function App() {
         onClick={toggleSideBar}
         isOpen={isOpen}
       />} />
+      <Route path="/profile" element={<ProfilePage
+        onClick={toggleSideBar}
+        isOpen={isOpen}
+      />} />
       <Route path="/login" element={<LoginPage/>} />
-      <Route path="/profile" element={<Profile/>} />
     </Routes>
     </BrowserRouter>
   );
