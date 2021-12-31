@@ -1,9 +1,9 @@
 import styles from './footer.module.css';
 
-function Footer(){
+const Footer = ({onClick}) => {
     return (
         <footer className={styles.footer}>
-            <button className={styles.button}>
+            <button className={styles.button} onClick={onClick}>
                 <i className="fas fa-bars"></i>
             </button>
             <button className={styles.button}>
@@ -14,6 +14,6 @@ function Footer(){
             </button>
         </footer>
     )
-}
+};
 
 export default Footer;

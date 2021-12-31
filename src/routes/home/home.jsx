@@ -1,14 +1,21 @@
+import { useState } from 'react';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
+import SideBar from '../../components/sideBar/sideBar';
 import styles from './home.module.css';
 
-function Home() {
+const Home = () => {
+    const [isOpen, setState] = useState(false);
+    const toggleSideBar = () => {
+        setState(isOpen => !isOpen);
+    }
     return (
         <section className={styles.home}>
             <Header></Header>
-            <Footer></Footer>
+            <SideBar onClick={toggleSideBar} isOpen={isOpen}></SideBar>
+            <Footer onClick={toggleSideBar} isOpen={isOpen}></Footer>
         </section>
     );
-}
+};
 
 export default Home;

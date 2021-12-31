@@ -1,9 +1,9 @@
 import styles from './sideBar.module.css';
 
-const SideBar = () => {
+const SideBar = ({onClick, isOpen}) => {
     return(
-        <section className={styles.sideBar}>
-        <div className={styles.close}>
+        <section className={isOpen ? styles.sideBar : styles.hidden}>
+        <div className={styles.close} onClick={onClick}>
             <button className={styles.closeBtn}>
                 <i className="fas fa-times"></i>
             </button>
@@ -18,6 +18,6 @@ const SideBar = () => {
         </ul>
         </section>
     );
-}
+};
 
 export default SideBar;
