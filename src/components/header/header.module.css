@@ -2,7 +2,7 @@
 
 .header {
   height: 4em;
-  width: 50%;
+  width: 50vw;
   background-color: teal;
   padding: 1em;
   box-sizing: border-box;
@@ -22,6 +22,6 @@
 
 @media screen and (max-width: smallScreen) {
   .header {
-    width: 85%;
+    width: 85vw;
   }
 }
