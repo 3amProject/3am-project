@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../../components/button/button';
 import styles from './loginPage.module.css';
 
@@ -7,9 +8,11 @@ const LoginPage = () => {
         <div className={styles.loginPage}>
         <section className={styles.login}>
             <header className={styles.header}>
-            <button className={styles.closeBtn}>
-                <i className="fas fa-times"></i>
-            </button>
+                <Link to="/">
+                    <button className={styles.closeBtn}>
+                        <i className="fas fa-times"></i>
+                    </button>
+                </Link>
                 <h1>로그인</h1>
                 <div className={styles.buttons}>
                     <button className={styles.typeSelectBtn}>회원</button>
@@ -36,7 +39,9 @@ const LoginPage = () => {
                     <button className={styles.findIdBtn}>아이디 찾기</button>
                     <button className={styles.findPwBtn}>비밀번호 찾기</button>
                 </div>
-                <Button className={styles.joinBtn} text="회원 가입"></Button>
+                <Link to='/join'>
+                    <Button className={styles.joinBtn} text="회원 가입"></Button>
+                </Link>
             </footer>
         </section>
         </div>

@@ -96,7 +96,8 @@
 }
 
 .findIdBtn:hover,
-.findPwBtn:hover {
+.findPwBtn:hover,
+.closeBtn:hover {
   cursor: pointer;
 }
 

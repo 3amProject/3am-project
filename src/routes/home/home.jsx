@@ -1,19 +1,14 @@
-import { useState } from 'react';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import SideBar from '../../components/sideBar/sideBar';
 import styles from './home.module.css';
 
-const Home = () => {
-    const [isOpen, setState] = useState(false);
-    const toggleSideBar = () => {
-        setState(isOpen => !isOpen);
-    }
+const Home = ({onClick, isOpen}) => {
     return (
         <section className={styles.home}>
             <Header></Header>
-            <SideBar onClick={toggleSideBar} isOpen={isOpen}></SideBar>
-            <Footer onClick={toggleSideBar} isOpen={isOpen}></Footer>
+            <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
+            <Footer onClick={onClick} isOpen={isOpen}></Footer>
         </section>
     );
 };
