@@ -20,6 +20,10 @@ const Profile = () => {
                 <span></span>
             </li>
             <li className={styles.info}>
+                <span>이메일</span>
+                <span></span>
+            </li>
+            <li className={styles.info}>
                 <span>주소</span>
                 <span></span>
             </li>
