@@ -7,3 +7,15 @@
   justify-content: space-between;
   background-color: yellowgreen;
 }
+.main {
+  height: 100%;
+  width: 50vw;
+  padding: 1em;
+  box-sizing: border-box;
+  background-color: bisque;
+}
+@media screen and (max-width: smallScreen) {
+  .main {
+    width: 90vw;
+  }
+}
