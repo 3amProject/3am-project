@@ -1,14 +1,9 @@
-import axios from 'axios'; // 액시오스
+import axios from 'axios';
 
-export default function customAxios(url, callback) {
-  axios(
-    {
-      url: '/api' + url,
-      method: 'post',
-      baseURL: 'http://localhost:8000',
-      withCredentials: true,
-    }
-  ).then(function (response) {
-    callback(response.data);
-  });
-}
+export const customAxios = axios.create({
+  baseURL: `http://localhost:8000`,
+  headers: {
+    "Access-Control-Allow-Origin": "http://localhost:3000",
+  },
+  withCredentials: true
+});

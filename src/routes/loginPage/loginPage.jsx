@@ -4,6 +4,7 @@ import Button from '../../components/button/button';
 import styles from './loginPage.module.css';
 
 const LoginPage = () => {
+    // security api 로 로그인 화면 조회해야 함
     return(
         <div className={styles.loginPage}>
         <section className={styles.login}>
