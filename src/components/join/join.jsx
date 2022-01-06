@@ -16,7 +16,7 @@ const Join = ({userAuth}) => {
             name : nameRef.current.value || '',
             userId : idRef.current.value || '',
             password : pwdRef.current.value || '',
-            pwd2 : pwd2Ref.current.value || '',
+            password2 : pwd2Ref.current.value || '',
             email : emailRef.current.value || '',
             address : addressRef.current.value || '',
             phoneNum : phoneNumRef.current.value || '',
