@@ -5,13 +5,12 @@ import JoinPage from "./routes/joinPage/joinPage";
 import LoginPage from "./routes/loginPage/loginPage";
 import ProfilePage from "./routes/profilePage/profilePage";
 
-
 const App = ({userAuth}) => {
   const [isOpen, setState] = useState(false);
   const toggleSideBar = () => {
       setState(isOpen => !isOpen);
   }
-
+  
   return (
     <BrowserRouter>
     <Routes>

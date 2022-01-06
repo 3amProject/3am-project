@@ -14,8 +14,8 @@ const Join = ({userAuth}) => {
     const handleSignUp = () => {
         const user = {
             name : nameRef.current.value || '',
-            id : idRef.current.value || '',
-            pwd : pwdRef.current.value || '',
+            userId : idRef.current.value || '',
+            password : pwdRef.current.value || '',
             pwd2 : pwd2Ref.current.value || '',
             email : emailRef.current.value || '',
             address : addressRef.current.value || '',
