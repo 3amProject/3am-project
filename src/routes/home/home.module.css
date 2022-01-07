@@ -14,6 +14,7 @@
   box-sizing: border-box;
   background-color: bisque;
 }
+
 @media screen and (max-width: smallScreen) {
   .main {
     width: 90vw;
