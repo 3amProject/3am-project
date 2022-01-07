@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import styles from './join.module.css';
 import Button from '../button/button';
+import { signUp } from '../../service/signUp';
 
-const Join = ({userAuth}) => {
+const Join = () => {
     const nameRef = useRef();
     const idRef = useRef();
     const pwdRef = useRef();
@@ -21,7 +22,7 @@ const Join = ({userAuth}) => {
             address : addressRef.current.value || '',
             phoneNum : phoneNumRef.current.value || '',
         }
-        userAuth.signUp(user);
+        signUp(user);
     }
 
     return (

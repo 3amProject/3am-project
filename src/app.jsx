@@ -5,7 +5,7 @@ import JoinPage from "./routes/joinPage/joinPage";
 import LoginPage from "./routes/loginPage/loginPage";
 import ProfilePage from "./routes/profilePage/profilePage";
 
-const App = ({userAuth}) => {
+const App = () => {
   const [isOpen, setState] = useState(false);
   const toggleSideBar = () => {
       setState(isOpen => !isOpen);
@@ -17,20 +17,16 @@ const App = ({userAuth}) => {
       <Route exact path="/" element={<Home
         onClick={toggleSideBar}
         isOpen={isOpen}
-        userAuth={userAuth}
       />} />
       <Route path="/join" element={<JoinPage
         onClick={toggleSideBar}
         isOpen={isOpen}
-        userAuth={userAuth}
       />} />
       <Route path="/profile" element={<ProfilePage
         onClick={toggleSideBar}
         isOpen={isOpen}
-        userAuth={userAuth}
       />} />
       <Route path="/login" element={<LoginPage
-        userAuth={userAuth}
       />} />
     </Routes>
     </BrowserRouter>
