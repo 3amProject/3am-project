@@ -35,7 +35,7 @@ const Join = () => {
             <input ref={pwd2Ref} className={styles.input} type="password" placeholder="비밀번호 확인" />
             <input ref={emailRef} className={styles.input} type="email" placeholder="이메일" />
             <input ref={addressRef} className={styles.input} type="text" placeholder="주소" />
-            <input ref={phoneNumRef} className={styles.input} type="tel" placeholder="전화번호" />
+            <input ref={phoneNumRef} className={styles.input} type="tel" placeholder="전화번호 '-', 공백 없이 입력" />
         </form>
         <div className={styles.buttons}>
             <Button text="취소"></Button>
