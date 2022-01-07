@@ -13,6 +13,11 @@
   padding: 1em;
   box-sizing: border-box;
   background-color: bisque;
+  overflow: scroll;
+}
+.calendar {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: smallScreen) {

@@ -25,17 +25,34 @@ const Home = ({onClick, isOpen}) => {
         name: '[저염]비빔 샐러드',
         price: '7,400원'
     },
+        {
+        id: 4,
+        url: '',
+        name: '[저염]비빔 샐러드',
+        price: '7,400원'
+    },
+        {
+        id: 5,
+        url: '',
+        name: '[저염]비빔 샐러드',
+        price: '7,400원'
+    },
+        {
+        id: 6,
+        url: '',
+        name: '[저염]비빔 샐러드',
+        price: '7,400원'
+    },
     ];
     
     return (
         <section className={styles.home}>
             <Header></Header>
             <main className={styles.main}>
-                <section className={styles.date}>
-                    <h2>1. 배송 날짜 선택</h2>
+                    <h2 className={styles.dateTitle}>1. 배송 날짜 선택</h2>
+                    <div className={styles.calendar}>
                     <ReactCalendar/>
-                </section>
-                <section className={styles.menu}>
+                    </div>
                     <h2>2. 메뉴 선택</h2>
                     <div className="menuList">
                     <MenuContainer
@@ -49,7 +66,6 @@ const Home = ({onClick, isOpen}) => {
                         menus={menus}
                     />
                     </div>
-                </section>
             </main>
             <Footer onClick={onClick} isOpen={isOpen}></Footer>
             <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
