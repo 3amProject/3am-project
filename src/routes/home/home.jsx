@@ -3,6 +3,7 @@ import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import MenuContainer from '../../components/menuContainer/menuContainer';
 import SideBar from '../../components/sideBar/sideBar';
+import TotalPrice from '../../components/totalPrice/totalPrice';
 import styles from './home.module.css';
 
 const Home = ({onClick, isOpen}) => {
@@ -11,37 +12,37 @@ const Home = ({onClick, isOpen}) => {
         id: 1,
         url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
-        price: '7,400원'
+        price: 7400
     },
         {
         id: 2,
         url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
-        price: '7,400원'
+        price: 7400
     },
         {
         id: 3,
         url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
-        price: '7,400원'
+        price: 7400
     },
         {
         id: 4,
         url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
-        price: '7,400원'
+        price: 7400
     },
         {
         id: 5,
         url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
-        price: '7,400원'
+        price: 7400
     },
         {
         id: 6,
         url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
-        price: '7,400원'
+        price: 7400
     },
     ];
     
@@ -71,6 +72,7 @@ const Home = ({onClick, isOpen}) => {
                 </div>
             </div>
             </main>
+            <TotalPrice></TotalPrice>
             <Footer onClick={onClick} isOpen={isOpen}></Footer>
             <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
         </section>
