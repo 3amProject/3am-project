@@ -54,12 +54,3 @@
 .hidden {
   display: none;
 }
-
-@media screen and (max-width: smallScreen) {
-  .sideBar {
-    width: 10em;
-  }
-  .button {
-    width: 5em;
-  }
-}

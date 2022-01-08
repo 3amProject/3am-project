@@ -1,3 +1,5 @@
+@value smallScreen from '../../common/size.css';
+
 .home {
   height: 100vh;
   min-height: 300px;
