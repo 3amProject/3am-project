@@ -4,8 +4,8 @@ import styles from './menuContainer.module.css';
 const MenuContainer = ({subTitle, title, menus}) => {
     return (
         <div className={styles.container}>
-            <p>{subTitle}</p>
-            <h3>{title}</h3>
+            <span>{subTitle}</span>
+            {<strong className={styles.title}>{title}</strong>}
             <div className={styles.menus}>
             {menus.map((menu) => 
                 (<Menu 

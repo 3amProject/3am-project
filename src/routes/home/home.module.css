@@ -9,15 +9,26 @@
 }
 .main {
   height: 100%;
-  width: 50vw;
+  width: 90vw;
+  max-width: 700px;
   padding: 1em;
   box-sizing: border-box;
   background-color: bisque;
   overflow: scroll;
 }
+
+.section1,
+.section2 {
+  margin-top: 5em;
+}
+.section2 {
+  margin-bottom: 5em;
+}
+
 .calendar {
   display: flex;
   justify-content: center;
+  padding-top: 3em;
 }
 
 @media screen and (max-width: smallScreen) {

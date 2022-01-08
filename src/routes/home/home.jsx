@@ -9,37 +9,37 @@ const Home = ({onClick, isOpen}) => {
     const menus = [
         {
         id: 1,
-        url: '',
+        url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
         price: '7,400원'
     },
         {
         id: 2,
-        url: '',
+        url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
         price: '7,400원'
     },
         {
         id: 3,
-        url: '',
+        url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
         price: '7,400원'
     },
         {
         id: 4,
-        url: '',
+        url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
         price: '7,400원'
     },
         {
         id: 5,
-        url: '',
+        url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
         price: '7,400원'
     },
         {
         id: 6,
-        url: '',
+        url: '/img/salad.png',
         name: '[저염]비빔 샐러드',
         price: '7,400원'
     },
@@ -49,23 +49,27 @@ const Home = ({onClick, isOpen}) => {
         <section className={styles.home}>
             <Header></Header>
             <main className={styles.main}>
-                    <h2 className={styles.dateTitle}>1. 배송 날짜 선택</h2>
-                    <div className={styles.calendar}>
-                    <ReactCalendar/>
-                    </div>
-                    <h2>2. 메뉴 선택</h2>
-                    <div className="menuList">
-                    <MenuContainer
-                        subTitle="매일 구매한 신선한 재료로 당일 조리"
-                        title="새벽다섯시 샐러드"
-                        menus={menus}
-                    />
-                    <MenuContainer
-                        subTitle="매일 하나씩만 받기 어려웠던"
-                        title="건강 간편식"
-                        menus={menus}
-                    />
-                    </div>
+            <div className={styles.section1}>
+                <h2 className={styles.dateTitle}>1. 배송 날짜 선택</h2>
+                <div className={styles.calendar}>
+                <ReactCalendar/>
+                </div>
+            </div>
+            <div className={styles.section2}>
+                <h2>2. 메뉴 선택</h2>
+                <div className="menuList">
+                <MenuContainer
+                    subTitle="매일 구매한 신선한 재료로 당일 조리"
+                    title="새벽다섯시 샐러드"
+                    menus={menus}
+                />
+                <MenuContainer
+                    subTitle="매일 하나씩만 받기 어려웠던"
+                    title="건강 간편식"
+                    menus={menus}
+                />
+                </div>
+            </div>
             </main>
             <Footer onClick={onClick} isOpen={isOpen}></Footer>
             <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
