@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import ReactCalendar from '../../components/calendar/calendar';
 import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
@@ -45,6 +46,17 @@ const Home = ({onClick, isOpen}) => {
         price: 7400
     },
     ];
+
+    const [totalPrice, setTotalPrice] = useState(0);
+    const handleTotalPrice = (price) => {
+        setTotalPrice((oldPrice) => oldPrice + price);
+    }
+    const showPrice = (price) => {
+        if(price < 1000) return `${price}원`;
+        let newPrice = String(price).split('').reverse();
+        newPrice.splice(3,0,',');
+        return newPrice.reverse().join('') + '원';
+    }
     
     return (
         <section className={styles.home}>
@@ -63,16 +75,23 @@ const Home = ({onClick, isOpen}) => {
                     subTitle="매일 구매한 신선한 재료로 당일 조리"
                     title="새벽다섯시 샐러드"
                     menus={menus}
+                    onClick={handleTotalPrice}
+                    showPrice={showPrice}
                 />
                 <MenuContainer
                     subTitle="매일 하나씩만 받기 어려웠던"
                     title="건강 간편식"
                     menus={menus}
+                    onClick={handleTotalPrice}
+                    showPrice={showPrice}
                 />
                 </div>
             </div>
             </main>
-            <TotalPrice></TotalPrice>
+            <TotalPrice
+            totalPrice={totalPrice}
+            showPrice={showPrice}
+            />
             <Footer onClick={onClick} isOpen={isOpen}></Footer>
             <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
         </section>
