@@ -4,6 +4,7 @@ import Join from '../../components/join/join';
 import SideBar from '../../components/sideBar/sideBar';
 import styles from './joinPage.module.css';
 
+
 const JoinPage = ({onClick, isOpen}) => {
     return(
         <>
