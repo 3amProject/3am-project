@@ -7,18 +7,21 @@ import ProfilePage from "./routes/profilePage/profilePage";
 import ProfileEditPage from './routes/profileEditPage/profileEditPage';
 
 const App = () => {
-  const [isOpen, setState] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const toggleSideBar = () => {
-      setState(isOpen => !isOpen);
+    setIsOpen(isOpen => !isOpen);
   }
+  
+  /// mission
+  // context api / useContext hook 
+  // styled component
   
   return (
     <BrowserRouter>
     <Routes>
-      <Route exact path="/" element={<Home
-        onClick={toggleSideBar}
-        isOpen={isOpen}
-      />} />
+      <Route exact path="/" element={<Home 
+      onClick={toggleSideBar} 
+      isOpen={isOpen} />} />
       <Route path="/join" element={<JoinPage
         onClick={toggleSideBar}
         isOpen={isOpen}
