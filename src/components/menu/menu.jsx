@@ -2,9 +2,9 @@ import styles from './menu.module.css';
 
 const Menu = ({menu}) => {
     const showPrice = (price) => {
-        let newPrice = String(price).split('');
-        newPrice.splice(2,0,',');
-        return newPrice.join('') + '원';
+        let newPrice = String(price).split('').reverse();
+        newPrice.splice(3,0,',');
+        return newPrice.reverse().join('') + '원';
     }
     return (
         <div className={styles.menu}>
