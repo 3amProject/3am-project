@@ -1,11 +1,41 @@
 import { useState } from 'react';
-import ReactCalendar from '../../components/calendar/calendar';
-import Footer from '../../components/footer/footer';
-import Header from '../../components/header/header';
-import MenuContainer from '../../components/menuContainer/menuContainer';
-import SideBar from '../../components/sideBar/sideBar';
-import TotalPrice from '../../components/totalPrice/totalPrice';
-import styles from './home.module.css';
+import styled from 'styled-components';
+import ReactCalendar from '../components/calendar';
+import Footer from '../components/footer';
+import Header from '../components/header';
+import MenuContainer from '../components/menuContainer';
+import SideBar from '../components/sideBar';
+import TotalPrice from '../components/totalPrice';
+
+const HomeComponent = styled.section`
+    height: 100vh;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: yellowgreen;
+`;
+const MainComponent = styled.main`
+    height: 100%;
+    width: 90vw;
+    max-width: 700px;
+    padding: 1em;
+    box-sizing: border-box;
+    background-color: bisque;
+    overflow: scroll;
+    @media screen and (max-width: 64rem) {
+        width: 90vw;
+    }
+`;
+const DivComponent = styled.div`
+    margin-top: 5em;
+`;
+const CalendarComponent = styled.div`
+    display: flex;
+    justify-content: center;
+    padding-top: 3em;
+`;
 
 const Home = ({onClick, isOpen}) => {
     const menus = [
@@ -59,16 +89,16 @@ const Home = ({onClick, isOpen}) => {
     }
     
     return (
-        <section className={styles.home}>
+        <HomeComponent>
             <Header></Header>
-            <main className={styles.main}>
-            <div className={styles.section1}>
-                <h2 className={styles.dateTitle}>1. 배송 날짜 선택</h2>
-                <div className={styles.calendar}>
-                <ReactCalendar/>
-                </div>
-            </div>
-            <div className={styles.section2}>
+            <MainComponent>
+            <DivComponent>
+                <h2>1. 배송 날짜 선택</h2>
+                <CalendarComponent>
+                    <ReactCalendar/>
+                </CalendarComponent>
+            </DivComponent>
+            <DivComponent>
                 <h2>2. 메뉴 선택</h2>
                 <div className="menuList">
                 <MenuContainer
@@ -86,15 +116,15 @@ const Home = ({onClick, isOpen}) => {
                     showPrice={showPrice}
                 />
                 </div>
-            </div>
-            </main>
+            </DivComponent>
+            </MainComponent>
             <TotalPrice
             totalPrice={totalPrice}
             showPrice={showPrice}
             />
             <Footer onClick={onClick} isOpen={isOpen}></Footer>
             <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
-        </section>
+        </HomeComponent>
     );
 };
 

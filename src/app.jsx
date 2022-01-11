@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./routes/home/home";
-import JoinPage from "./routes/joinPage/joinPage";
-import LoginPage from "./routes/loginPage/loginPage";
-import ProfilePage from "./routes/profilePage/profilePage";
-import ProfileEditPage from './routes/profileEditPage/profileEditPage';
+import Home from "./routes/home";
+import JoinPage from "./routes/joinPage";
+import LoginPage from "./routes/loginPage";
+import ProfilePage from "./routes/profilePage";
+import ProfileEditPage from './routes/profileEditPage';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
