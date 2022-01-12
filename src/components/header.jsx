@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, {css} from "styled-components";
 
 const HeaderComponent = styled.header`
@@ -22,7 +23,7 @@ const DivComponent = styled.div`
     `}
 `;
 
-const Header = () => {
+const Header = ({date}) => {
     return (
         <HeaderComponent>
             <DivComponent>
@@ -30,7 +31,12 @@ const Header = () => {
                 <span> 새벽세시</span>
             </DivComponent>
             <DivComponent goToBtn>
-                <i className="fas fa-shopping-cart"></i>
+                <Link
+                to='/cart'
+                state={date? date : new Date()}
+                >
+                    <i className="fas fa-shopping-cart"></i>
+                </Link>
             </DivComponent>
         </HeaderComponent>
     )

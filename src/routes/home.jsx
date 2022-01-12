@@ -17,16 +17,16 @@ const HomeComponent = styled.section`
     background-color: yellowgreen;
 `;
 const MainComponent = styled.main`
-    height: 100%;
+height: 100%;
+width: 90vw;
+max-width: 700px;
+padding: 1em;
+box-sizing: border-box;
+background-color: bisque;
+overflow: scroll;
+@media screen and (max-width: 64rem) {
     width: 90vw;
-    max-width: 700px;
-    padding: 1em;
-    box-sizing: border-box;
-    background-color: bisque;
-    overflow: scroll;
-    @media screen and (max-width: 64rem) {
-        width: 90vw;
-    }
+}
 `;
 const DivComponent = styled.div`
     margin-top: 5em;
@@ -87,7 +87,9 @@ const Home = ({onClick, isOpen}) => {
         newPrice.splice(3,0,',');
         return newPrice.reverse().join('') + '원';
     }
-    
+
+    const [date, setDate] = useState(new Date());
+
     return (
         <HomeComponent>
             <Header></Header>
@@ -95,7 +97,10 @@ const Home = ({onClick, isOpen}) => {
             <DivComponent>
                 <h2>1. 배송 날짜 선택</h2>
                 <CalendarComponent>
-                    <ReactCalendar/>
+                    <ReactCalendar
+                    date={date}
+                    onChange={(date)=>setDate(date)}
+                    />
                 </CalendarComponent>
             </DivComponent>
             <DivComponent>
@@ -121,6 +126,7 @@ const Home = ({onClick, isOpen}) => {
             <TotalPrice
             totalPrice={totalPrice}
             showPrice={showPrice}
+            date={date}
             />
             <Footer onClick={onClick} isOpen={isOpen}></Footer>
             <SideBar onClick={onClick} isOpen={isOpen}></SideBar>

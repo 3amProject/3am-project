@@ -5,6 +5,7 @@ import JoinPage from "./routes/joinPage";
 import LoginPage from "./routes/loginPage";
 import ProfilePage from "./routes/profilePage";
 import ProfileEditPage from './routes/profileEditPage';
+import CartPage from "./routes/cartPage";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,6 +32,10 @@ const App = () => {
         isOpen={isOpen}
       />} />
       <Route path="/profileEdit" element={<ProfileEditPage
+        onClick={toggleSideBar}
+        isOpen={isOpen}
+      />} />
+      <Route path="/cart" element={<CartPage
         onClick={toggleSideBar}
         isOpen={isOpen}
       />} />

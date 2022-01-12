@@ -1,20 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-const ReactCalendar = () => {
-    const [date, setDate] = useState(new Date());
-    
+const ReactCalendar = ({date, onChange}) => {
     return (
-        <>
         <Calendar
-            onChange={date => setDate(date)}
+            onChange={onChange}
             value={date}
             calendarType="Hebrew"
             prev2Label={null}
             next2Label={null}
+            minDate={new Date()}
         ></Calendar>
-        </>
     );
 }
 
