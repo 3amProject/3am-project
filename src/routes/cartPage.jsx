@@ -2,7 +2,7 @@ import Footer from "../components/footer"
 import Header from "../components/header"
 import SideBar from "../components/sideBar";
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
+import CartMenus from "../components/cartMenus";
 
 const SectionComponent = styled.section`
     height: 100vh;
@@ -25,23 +25,6 @@ const MainComponent = styled.main`
         width: 90vw;
     }
 `;
-const DivComponent = styled.div`
-    background-color: white;
-    padding: 1em 2em;
-    & li {
-        background-color: pink;
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.5em;
-        & input {
-            width: 1em;
-        }
-    }
-    @media screen and (max-width: 64rem) {
-        padding: 0.5em;
-    }
-`;
 const ButtonsComponent = styled.div`
     background-color: pink;
     height: 4rem;
@@ -61,40 +44,18 @@ const ButtonsComponent = styled.div`
     };
 `;
 const CartPage = ({onClick, isOpen}) => {
-    const location = useLocation();
-    const formatDate = (date) => new Intl.DateTimeFormat('fr-CA', {
-        year: "numeric", 
-        month: "2-digit", 
-        day: "2-digit"
-    }).format(date);
-
     return (
         <SectionComponent>
         <Header></Header>
         <MainComponent>
             <h1>장바구니 목록</h1>
             <div>
-                <input type="checkbox" />
-                <DivComponent>
-                    <p>배송 날짜 : {formatDate(location.state.date)}</p>
-                    <span>메뉴 </span>
-                    <i className="fas fa-chevron-down"></i>
-                    <ul>
-                        <li>
-                            <span>불고기 샐러드</span>
-                            <div>
-                                <button>-</button>
-                                <input type="text" placeholder="3"/>
-                                <button>+</button>
-                            </div>
-                        </li>
-                    </ul>
-                </DivComponent>
+            <CartMenus></CartMenus>
             </div>
         </MainComponent>
         <ButtonsComponent>
-        <button>선택 삭제</button>
-        <button>비우기</button>
+        <button>장바구니 비우기</button>
+        <button>주문하기</button>
         </ButtonsComponent>
         <Footer onClick={onClick} isOpen={isOpen}></Footer>
         <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
