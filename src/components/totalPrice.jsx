@@ -23,7 +23,7 @@ const TotalPrice = ({totalPrice, showPrice, date}) => {
             <Link
             to='/cart'
             state={{date}}>
-            <button>장바구니</button>
+            <button>장바구니에 담기</button>
             </Link>
         </FooterComponent>
     )
