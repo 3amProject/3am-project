@@ -6,6 +6,7 @@ import LoginPage from "./routes/loginPage";
 import ProfilePage from "./routes/profilePage";
 import ProfileEditPage from './routes/profileEditPage';
 import CartPage from "./routes/cartPage";
+import OrderTypePage from "./routes/orderTypePage";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +41,8 @@ const App = () => {
         isOpen={isOpen}
       />} />
       <Route path="/login" element={<LoginPage
+      />} />
+      <Route path="/orderType" element={<OrderTypePage
       />} />
     </Routes>
     </BrowserRouter>

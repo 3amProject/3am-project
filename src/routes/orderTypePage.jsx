@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import NotUserLogin from '../components/notUserLogin';
-import UserLogin from '../components/userLogin';
+import styled from "styled-components";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import UserLogin from "../components/userLogin";
+import NotUserOrder from "../components/notUserOrder";
 
 const DivComponent = styled.div`
     width: 100vw;
@@ -50,9 +50,10 @@ const HeaderComponent = styled.header`
 `;
 const MainComponent = styled.main`
     width: 80%;
-    height: 50%;
+    height: 60%;
 `;
-const LoginPage = () => {
+
+const OrderTypePage = () => {
     const [isUser, setIsUser] = useState(true);
 
     // security api 로 로그인 화면 조회해야 함
@@ -80,11 +81,11 @@ const LoginPage = () => {
                 </div>
             </HeaderComponent>
             <MainComponent>
-            {isUser ? <UserLogin/> : <NotUserLogin/>}
+            {isUser ? <UserLogin/> : <NotUserOrder/>}
             </MainComponent>
         </SectionComponent>
         </DivComponent>
     );
 }
 
-export default LoginPage;
+export default OrderTypePage;
