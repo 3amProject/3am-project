@@ -18,16 +18,16 @@ const LiComponent = styled.li`
     }
 `;
 
-const CartMenu = (props) => {
+const CartMenu = ({menu}) => {
     return (
         <LiComponent>
             <button>
                 <i className="fas fa-minus"></i>
             </button>
-            <p>불고기 샐러드</p>
+            <p>{menu.name}</p>
             <div>
                 <button>-</button>
-                <input type="number" min="1" step="1"/>
+                <input type="number" min="1" step="1" value={menu.qty}/>
                 <button>+</button>
             </div>
         </LiComponent>

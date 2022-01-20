@@ -15,7 +15,7 @@ const DivComponent = styled.div`
     }
 `;
 
-const CartMenus = () => {
+const CartMenus = ({selected}) => {
     const location = useLocation();
     const formatDate = (date) => new Intl.DateTimeFormat('fr-CA', {
         year: "numeric", 
@@ -24,19 +24,20 @@ const CartMenus = () => {
     }).format(date);
 
     return (
-    <DivComponent>
-    <p>배송 날짜 : {formatDate(location.state.date)}</p>
-    <span>메뉴 </span>
-    <i className="fas fa-chevron-down"></i>
-    <ul>
-        <CartMenu></CartMenu>
-        <CartMenu></CartMenu>
-        <CartMenu></CartMenu>
-        <CartMenu></CartMenu>
-        <CartMenu></CartMenu>
-        <CartMenu></CartMenu>
-    </ul>
-    </DivComponent>
+        <DivComponent>
+        <p>주문 날짜 : {formatDate(Date.now())}</p>
+        <p>배송 날짜 : {formatDate(location.state.date)}</p>
+        <span>메뉴 </span>
+        <i className="fas fa-chevron-down"></i>
+        <ul>
+        {selected.map(menu => (
+        <CartMenu
+        key={menu.id}
+        menu={menu}
+        ></CartMenu>
+        ))}
+        </ul>    
+        </DivComponent>
     );
 }
 

@@ -42,45 +42,71 @@ const Home = ({onClick, isOpen}) => {
         {
         id: 1,
         url: '/img/salad.png',
-        name: '[저염]비빔 샐러드',
-        price: 7400
+        name: '음식1111',
+        price: 7400,
+        qty: 1,
+
     },
         {
         id: 2,
         url: '/img/salad.png',
-        name: '[저염]비빔 샐러드',
-        price: 7400
+        name: '음식2222',
+        price: 7400,
+        qty: 1,
+
     },
         {
         id: 3,
         url: '/img/salad.png',
-        name: '[저염]비빔 샐러드',
-        price: 7400
+        name: '음식3333',
+        price: 7400,
+        qty: 1,
+
     },
         {
         id: 4,
         url: '/img/salad.png',
-        name: '[저염]비빔 샐러드',
-        price: 7400
+        name: '음식4444',
+        price: 7400,
+        qty: 1,
+
     },
         {
         id: 5,
         url: '/img/salad.png',
-        name: '[저염]비빔 샐러드',
-        price: 7400
+        name: '음식5555',
+        price: 7400,
+        qty: 1,
+
     },
         {
         id: 6,
         url: '/img/salad.png',
-        name: '[저염]비빔 샐러드',
-        price: 7400
+        name: '음식6666',
+        price: 7400,
+        qty: 1,
     },
     ];
 
     const [totalPrice, setTotalPrice] = useState(0);
-    const handleTotalPrice = (price) => {
-        setTotalPrice((oldPrice) => oldPrice + price);
+    const [selected, setSelected] = useState([]);
+
+    const handleAdd = (menu) => {
+        setTotalPrice((oldPrice) => oldPrice + menu.price);
+        setSelected(oldSelected => {
+            const updatedSelect = [...oldSelected];
+            const targetIdx = updatedSelect.findIndex((v) => v.id === menu.id);
+            if(targetIdx === -1){
+                updatedSelect.push(menu);
+            } else {
+                const needUpdate = updatedSelect.splice(targetIdx, 1)[0];
+                needUpdate['qty']++;
+                updatedSelect.splice(targetIdx,0,needUpdate);
+            }
+            return updatedSelect;
+        });
     }
+
     const showPrice = (price) => {
         if(price < 1000) return `${price}원`;
         let newPrice = String(price).split('').reverse();
@@ -110,14 +136,14 @@ const Home = ({onClick, isOpen}) => {
                     subTitle="매일 구매한 신선한 재료로 당일 조리"
                     title="새벽다섯시 샐러드"
                     menus={menus}
-                    onClick={handleTotalPrice}
+                    onClick={handleAdd}
                     showPrice={showPrice}
                 />
                 <MenuContainer
                     subTitle="매일 하나씩만 받기 어려웠던"
                     title="건강 간편식"
                     menus={menus}
-                    onClick={handleTotalPrice}
+                    onClick={handleAdd}
                     showPrice={showPrice}
                 />
                 </div>
@@ -127,6 +153,7 @@ const Home = ({onClick, isOpen}) => {
             totalPrice={totalPrice}
             showPrice={showPrice}
             date={date}
+            selected={selected}
             />
             <Footer onClick={onClick} isOpen={isOpen}></Footer>
             <SideBar onClick={onClick} isOpen={isOpen}></SideBar>

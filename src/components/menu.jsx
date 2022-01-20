@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const DivComponent = styled.div`
@@ -32,7 +33,7 @@ const Menu = ({menu, onClick, showPrice}) => {
             <FooterComponent>
                 <span>{showPrice(menu.price)}</span>
                 <ButtonComponent
-                onClick={()=>onClick(menu.price)}>
+                onClick={()=>onClick(menu)}>
                     <i className="fas fa-shopping-basket"></i>
                 </ButtonComponent>
             </FooterComponent>

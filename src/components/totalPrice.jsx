@@ -13,7 +13,7 @@ const FooterComponent = styled.footer`
     }
 `;
 
-const TotalPrice = ({totalPrice, showPrice, date}) => {
+const TotalPrice = ({totalPrice, showPrice, date, selected}) => {
     return (
         <FooterComponent>
             <div>
@@ -22,7 +22,8 @@ const TotalPrice = ({totalPrice, showPrice, date}) => {
             </div>
             <Link
             to='/cart'
-            state={{date}}>
+            state={{date, selected}}
+            >
             <button>장바구니에 담기</button>
             </Link>
         </FooterComponent>

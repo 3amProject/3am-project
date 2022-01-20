@@ -3,7 +3,7 @@ import Header from "../components/header"
 import SideBar from "../components/sideBar";
 import styled from "styled-components";
 import CartMenus from "../components/cartMenus";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const SectionComponent = styled.section`
     height: 100vh;
@@ -51,14 +51,21 @@ const ButtonsComponent = styled.div`
         }
     };
 `;
+
 const CartPage = ({onClick, isOpen}) => {
+    const location = useLocation();
+    const selected = location.state.selected;
+    console.log(selected);
     return (
         <SectionComponent>
         <Header></Header>
         <MainComponent>
             <h1>장바구니 목록</h1>
             <div>
-            <CartMenus></CartMenus>
+            {selected.length === 0 ? 
+            <h3>장바구니가 비었습니다.</h3> :
+            <CartMenus selected={selected}></CartMenus>
+            }
             </div>
         </MainComponent>
         <ButtonsComponent>
