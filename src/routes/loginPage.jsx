@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Login from '../components/login';
 import NotUserLogin from '../components/notUserLogin';
-import UserLogin from '../components/userLogin';
 
 const DivComponent = styled.div`
     width: 100vw;
@@ -52,6 +52,7 @@ const MainComponent = styled.main`
     width: 80%;
     height: 50%;
 `;
+
 const LoginPage = () => {
     const [isUser, setIsUser] = useState(true);
 
@@ -80,7 +81,7 @@ const LoginPage = () => {
                 </div>
             </HeaderComponent>
             <MainComponent>
-            {isUser ? <UserLogin/> : <NotUserLogin/>}
+            {isUser ? <Login/> : <NotUserLogin/>}
             </MainComponent>
         </SectionComponent>
         </DivComponent>

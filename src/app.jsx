@@ -7,6 +7,8 @@ import ProfilePage from "./routes/profilePage";
 import ProfileEditPage from './routes/profileEditPage';
 import CartPage from "./routes/cartPage";
 import OrderTypePage from "./routes/orderTypePage";
+import UserOrderPage from "./routes/userOrderPage";
+import NotUserOrderPage from "./components/notUserOrder";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,10 +42,19 @@ const App = () => {
         onClick={toggleSideBar}
         isOpen={isOpen}
       />} />
+      <Route path="/userOrder" element={<UserOrderPage
+        onClick={toggleSideBar}
+        isOpen={isOpen}
+      />} />
+      <Route path="/notUserOrder" element={<NotUserOrderPage
+        onClick={toggleSideBar}
+        isOpen={isOpen}
+      />} />
       <Route path="/login" element={<LoginPage
       />} />
       <Route path="/orderType" element={<OrderTypePage
       />} />
+
     </Routes>
     </BrowserRouter>
   );
