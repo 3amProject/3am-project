@@ -23,11 +23,11 @@ const ButtonComponent = styled.button`
     }
 `;
 
-const Menu = ({menu, onClick, showPrice}) => {
+const Menu = ({menu, onClick, showPrice, imgUrl}) => {
     return (
         <DivComponent>
             <div>
-                <img src={menu.url} alt="img" />
+                <img src={imgUrl} alt="img" />
             </div>
             <p>{menu.name}</p>
             <FooterComponent>

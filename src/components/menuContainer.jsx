@@ -15,16 +15,17 @@ const MenusComponent = styled.div`
     margin-top: 2em;
 `;
 
-const MenuContainer = ({subTitle, title, menus, onClick, showPrice}) => {
+const MenuContainer = ({subTitle, title, menus, onClick, showPrice, foodImgs01, foodImgs02}) => {
     return (
         <SectionComponent>
             <span>{subTitle}</span>
             {<strong>{title}</strong>}
             <MenusComponent>
-            {menus.map((menu) => 
+            {menus.map((menu, idx) => 
                 (<Menu 
                     key={menu.id}
                     menu={menu}
+                    imgUrl={foodImgs01 ? `/img/${foodImgs01[idx]}.png` : `/img/${foodImgs02[idx]}.png`}
                     onClick={onClick}
                     showPrice={showPrice}
                 />)

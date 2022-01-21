@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import UserLogin from "../components/userLogin";
+import Login from '../components/login';
 import NotUserOrder from "../components/notUserOrder";
 
 const DivComponent = styled.div`
@@ -81,7 +81,7 @@ const OrderTypePage = () => {
                 </div>
             </HeaderComponent>
             <MainComponent>
-            {isUser ? <UserLogin/> : <NotUserOrder/>}
+            {isUser ? <Login/> : <NotUserOrder/>}
             </MainComponent>
         </SectionComponent>
         </DivComponent>

@@ -23,7 +23,7 @@ const DivComponent = styled.div`
     `}
 `;
 
-const Header = ({date}) => {
+const Header = () => {
     return (
         <HeaderComponent>
             <DivComponent>
@@ -33,7 +33,6 @@ const Header = ({date}) => {
             <DivComponent goToBtn>
                 <Link
                 to='/cart'
-                state={date? date : new Date()}
                 >
                     <i className="fas fa-shopping-cart"></i>
                 </Link>

@@ -16,7 +16,7 @@ const NotUserLogin = () => {
     return (
         <DivComponent>
         <input type="text" placeholder=" 주문번호"/>
-        <input type="password" placeholder=" 비밀번호"/>
+        <input type="text" placeholder=" 주문자명"/>
         <Button text="확인"></Button>
         </DivComponent>
     );

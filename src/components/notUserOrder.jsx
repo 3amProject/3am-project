@@ -24,7 +24,9 @@ const NotUserOrder = () => {
 
         <label htmlFor="agree">개인정보수집에 대한 내용을 읽었으며 이에 동의합니다.</label>
         <input name="agree" type="checkbox" />
+        <Link to='/notUserOrder'>
         <Button text="비회원으로 주문"></Button>
+        </Link>
         <span>회원이 되면 더 많은 혜택이!</span>
         <Link to='/join'>
         <Button text="회원가입"></Button>
