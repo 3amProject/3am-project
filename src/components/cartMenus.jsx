@@ -27,16 +27,17 @@ const CartMenus = ({selected}) => {
         <DivComponent>
         <p>주문 날짜 : {formatDate(Date.now())}</p>
         <p>배송 날짜 : {formatDate(location.state.date)}</p>
-        <span>메뉴 </span>
-        <i className="fas fa-chevron-down"></i>
-        <ul>
-        {selected.map(menu => (
-        <CartMenu
-        key={menu.id}
-        menu={menu}
-        ></CartMenu>
-        ))}
-        </ul>    
+        <details> 
+            <summary>메뉴</summary>
+            <ul>
+            {selected.map(menu => (
+            <CartMenu
+            key={menu.id}
+            menu={menu}
+            ></CartMenu>
+            ))}
+            </ul>    
+        </details>
         </DivComponent>
     );
 }

@@ -55,7 +55,7 @@ const ButtonsComponent = styled.div`
 const CartPage = ({onClick, isOpen}) => {
     const location = useLocation();
     const selected = location.state.selected;
-    console.log(selected);
+    
     return (
         <SectionComponent>
         <Header></Header>
