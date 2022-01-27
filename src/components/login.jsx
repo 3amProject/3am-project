@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './button';
+import login from '../service/login';
 
 const DivComponent = styled.div`
     display: flex;
@@ -42,11 +43,31 @@ const FooterComponent = styled.footer`
 `;
 
 const Login = () => {
+    const [formData, setFormData] = useState({
+        userId: '',
+        password: ''
+    })
+
+    const handleLogin = (user) => {
+        const data = login(user);
+        if(!!data.error){
+            window.alert(data.error);
+        } else {
+            window.location.href = '/';
+        }
+    }
+
     return (
         <>
         <DivComponent>
-            <input type="text" placeholder=" 아이디"/>
-            <input type="password" placeholder=" 비밀번호"/>
+            <input required
+            value={formData.userId}
+            onChange={(e) => setFormData(oldFormData => ({...oldFormData, userId: e.target.value}))}
+            type="text" placeholder=" 아이디"/>
+            <input required
+            value={formData.password}
+            onChange={(e) => setFormData(oldFormData => ({...oldFormData, password: e.target.value}))}
+            type="password" placeholder=" 비밀번호"/>
             <form>
                 <div>
                 <input type="checkbox" name="checkId"/>
@@ -59,7 +80,7 @@ const Login = () => {
             </form>
         </DivComponent>
         <FooterComponent>
-            <Button text="로그인"></Button>
+            <Button text="로그인" onClick={() => handleLogin(formData)}></Button>
             <div>
                 <button>아이디 찾기</button>
                 <span></span>

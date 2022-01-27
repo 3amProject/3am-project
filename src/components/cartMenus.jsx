@@ -25,7 +25,6 @@ const CartMenus = ({selected}) => {
 
     return (
         <DivComponent>
-        <p>주문 날짜 : {formatDate(Date.now())}</p>
         <p>배송 날짜 : {formatDate(location.state.date)}</p>
         <details> 
             <summary>메뉴</summary>

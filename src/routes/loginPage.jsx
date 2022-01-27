@@ -55,8 +55,6 @@ const MainComponent = styled.main`
 
 const LoginPage = () => {
     const [isUser, setIsUser] = useState(true);
-
-    // security api 로 로그인 화면 조회해야 함
     const handleShow = (e) => {
         if(e.target.textContent === '회원'){
             setIsUser(true);

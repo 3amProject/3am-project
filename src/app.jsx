@@ -79,11 +79,7 @@ const App = () => {
   const toggleSideBar = () => {
     setIsOpen(isOpen => !isOpen);
   }
-  
-  /// mission
-  // context api / useContext hook 
-  // styled component
-  
+
   return (
     <BrowserRouter>
     <Routes>

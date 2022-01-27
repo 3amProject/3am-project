@@ -1,12 +1,12 @@
 import { customAxios } from "./customAxios";
 
-const signUp = async (user, requird = []) => {
+const signUp = async (user, required = []) => {
     let validate = true;   
     let result = {
         error: ''
     };
 
-    requird.map(k => {
+    required.map(k => {
         if (user[k] === '' || !user[k]) {
             validate = false;
         }
