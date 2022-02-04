@@ -1,16 +1,16 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const DivComponent = styled.div`
+const Div = styled.div`
     background-color: cadetblue;
     padding: 1em;
 `;
-const FooterComponent = styled.div`
+const Footer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
 `;
-const ButtonComponent = styled.button`
+const Button = styled.button`
     width: 2rem;
     height: 2rem;
     border: none;
@@ -25,19 +25,19 @@ const ButtonComponent = styled.button`
 
 const Menu = ({menu, onClick, showPrice, imgUrl}) => {
     return (
-        <DivComponent>
+        <Div>
             <div>
                 <img src={imgUrl} alt="img" />
             </div>
             <p>{menu.name}</p>
-            <FooterComponent>
+            <Footer>
                 <span>{showPrice(menu.price)}</span>
-                <ButtonComponent
+                <Button
                 onClick={()=>onClick(menu)}>
                     <i className="fas fa-shopping-basket"></i>
-                </ButtonComponent>
-            </FooterComponent>
-        </DivComponent>
+                </Button>
+            </Footer>
+        </Div>
     )
 }
 

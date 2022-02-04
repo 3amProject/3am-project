@@ -1,22 +1,22 @@
-import Button from './button';
+import Button from './Button';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const SectionComponent = styled.section`
+const Section = styled.section`
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
 `;
-const UlComponent = styled.ul`
+const Ul = styled.ul`
     margin: 2rem 0;
 `;
 
 const Profile = ({user}) => {
     return (
-        <SectionComponent>
+        <Section>
         <h1>마이 페이지</h1>
-        <UlComponent>
+        <Ul>
             <li>
                 <span>이름</span>
                 <span>{user && user.name}</span>
@@ -41,7 +41,7 @@ const Profile = ({user}) => {
                 <span>전화번호</span>
                 <span>{user && user.phoneNum}</span>
             </li>
-        </UlComponent>
+        </Ul>
         <div>
             <Link to='/profileEdit'>
                 <Button text="회원 정보 수정"></Button>
@@ -49,7 +49,7 @@ const Profile = ({user}) => {
             <p></p>
             <Button text="로그아웃"></Button>
         </div>
-        </SectionComponent>
+        </Section>
     );
 }
 

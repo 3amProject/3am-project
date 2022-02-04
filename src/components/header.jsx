@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled, {css} from "styled-components";
 
-const HeaderComponent = styled.header`
+const Header = styled.header`
     height: 4em;
     width: 70vw;
     background-color: teal;
@@ -15,7 +15,7 @@ const HeaderComponent = styled.header`
     };
 
 `;
-const DivComponent = styled.div`
+const Div = styled.div`
     font-size: 1.3rem;
     ${props =>
     props.goToBtn && css`
@@ -25,19 +25,19 @@ const DivComponent = styled.div`
 
 const Header = () => {
     return (
-        <HeaderComponent>
-            <DivComponent>
+        <Header>
+            <Div>
                 <i className="fas fa-shipping-fast"></i>
                 <span> 새벽세시</span>
-            </DivComponent>
-            <DivComponent goToBtn>
+            </Div>
+            <Div goToBtn>
                 <Link
                 to='/cart'
                 >
                     <i className="fas fa-shopping-cart"></i>
                 </Link>
-            </DivComponent>
-        </HeaderComponent>
+            </Div>
+        </Header>
     )
 }
 

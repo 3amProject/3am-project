@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const FooterComponent = styled.footer`
+const Footer = styled.footer`
     height: 5em;
     width: 70vw;
     background-color: teal;
@@ -12,7 +12,7 @@ const FooterComponent = styled.footer`
         width: 90vw;
     }
 `;
-const BtnComponent = styled.button`
+const Btn = styled.button`
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
@@ -21,21 +21,21 @@ const BtnComponent = styled.button`
 
 const Footer = ({onClick}) => {
     return (
-        <FooterComponent>
-            <BtnComponent onClick={onClick}>
+        <Footer>
+            <Btn onClick={onClick}>
                 <i className="fas fa-bars"></i>
-            </BtnComponent>
+            </Btn>
             <Link to="/">
-            <BtnComponent>
+            <Btn>
                 <i className="far fa-calendar-check"></i>
-            </BtnComponent>
+            </Btn>
             </Link>
             <Link to="/profile">
-            <BtnComponent>
+            <Btn>
                 <i className="fas fa-user"></i>
-            </BtnComponent>
+            </Btn>
             </Link>
-        </FooterComponent>
+        </Footer>
     )
 };
 

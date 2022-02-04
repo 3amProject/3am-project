@@ -10,7 +10,7 @@ import OrderTypePage from "./routes/orderTypePage";
 import UserOrderPage from "./routes/userOrderPage";
 import NotUserOrderPage from "./routes/notUserOrderPage";
 
-const App = () => {
+const App = ({authentication}) => {
   const menus = [
     {
     id: 1,
@@ -84,6 +84,7 @@ const App = () => {
     <BrowserRouter>
     <Routes>
       <Route exact path="/" element={<Home 
+        authentication={authentication}
       onClick={toggleSideBar} 
       isOpen={isOpen}
       menus={menus} />} />
@@ -92,18 +93,22 @@ const App = () => {
         isOpen={isOpen}
       />} />
       <Route path="/profile" element={<ProfilePage
+        authentication={authentication}
         onClick={toggleSideBar}
         isOpen={isOpen}
       />} />
       <Route path="/profileEdit" element={<ProfileEditPage
+        authentication={authentication}
         onClick={toggleSideBar}
         isOpen={isOpen}
       />} />
       <Route path="/cart" element={<CartPage
+        authentication={authentication}
         onClick={toggleSideBar}
         isOpen={isOpen}
       />} />
       <Route path="/userOrder" element={<UserOrderPage
+        authentication={authentication}
         onClick={toggleSideBar}
         isOpen={isOpen}
       />} />
@@ -114,6 +119,7 @@ const App = () => {
       <Route path="/login" element={<LoginPage
       />} />
       <Route path="/orderType" element={<OrderTypePage
+        authentication={authentication}
       />} />
 
     </Routes>

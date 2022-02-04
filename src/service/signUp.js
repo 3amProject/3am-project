@@ -25,7 +25,7 @@ const signUp = async (user, required = []) => {
         return result;
     }
     
-    const data = await customAxios.post(`/auth/joinProc`, JSON.stringify(user));
+    const data = await customAxios.post('/auth/signUpProc', JSON.stringify(user));
     return data;
 }
 

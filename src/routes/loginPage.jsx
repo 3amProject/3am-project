@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Login from '../components/login';
-import NotUserLogin from '../components/notUserLogin';
+import Login from '../components/Login';
+import NotUserLogin from '../components/NotUserLogin';
 
-const DivComponent = styled.div`
+const Div = styled.div`
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 `;
-const SectionComponent = styled.section`
+const Section = styled.section`
     position: relative;
     width: 60%;
     max-width: 500px;
@@ -27,7 +27,7 @@ const SectionComponent = styled.section`
         height: 90%;
     }
 `;
-const HeaderComponent = styled.header`
+const Header = styled.header`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,25 +48,25 @@ const HeaderComponent = styled.header`
         }
     }
 `;
-const MainComponent = styled.main`
+const Main = styled.main`
     width: 80%;
     height: 50%;
 `;
 
 const LoginPage = () => {
-    const [isUser, setIsUser] = useState(true);
+    const [isForUser, setIsForUser] = useState(true);
     const handleShow = (e) => {
         if(e.target.textContent === '회원'){
-            setIsUser(true);
+            setIsForUser(true);
         }else{
-            setIsUser(false);
+            setIsForUser(false);
         }
     }
 
     return (
-        <DivComponent>
-        <SectionComponent>
-            <HeaderComponent>
+        <Div>
+        <Section>
+            <Header>
                 <Link to="/">
                     <button className="closeBtn">
                         <i className="fas fa-times"></i>
@@ -77,12 +77,12 @@ const LoginPage = () => {
                     <button onClick={handleShow}>회원</button>
                     <button onClick={handleShow}>비회원</button>
                 </div>
-            </HeaderComponent>
-            <MainComponent>
-            {isUser ? <Login/> : <NotUserLogin/>}
-            </MainComponent>
-        </SectionComponent>
-        </DivComponent>
+            </Header>
+            <Main>
+            {isForUser ? <Login/> : <NotUserLogin/>}
+            </Main>
+        </Section>
+        </Div>
     );
 }
 

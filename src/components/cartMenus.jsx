@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useLocation } from "react-router";
-import CartMenu from "./cartMenu";
+import CartMenu from "./CartMenu";
 
-const DivComponent = styled.div`
+const Div = styled.div`
     background-color: white;
     padding: 1em 2em;
     & ul {
@@ -24,7 +24,7 @@ const CartMenus = ({selected}) => {
     }).format(date);
 
     return (
-        <DivComponent>
+        <Div>
         <p>배송 날짜 : {formatDate(location.state.date)}</p>
         <details> 
             <summary>메뉴</summary>
@@ -37,7 +37,7 @@ const CartMenus = ({selected}) => {
             ))}
             </ul>    
         </details>
-        </DivComponent>
+        </Div>
     );
 }
 

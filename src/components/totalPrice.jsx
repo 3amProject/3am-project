@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const FooterComponent = styled.footer`
+const Footer = styled.footer`
     height: 5em;
     width: 70vw;
     background-color: ghostwhite;
@@ -15,7 +15,7 @@ const FooterComponent = styled.footer`
 
 const TotalPrice = ({totalPrice, showPrice, date, selected}) => {
     return (
-        <FooterComponent>
+        <Footer>
             <div>
                 <span>결제금액</span>
                 <span>총 {showPrice(totalPrice)}</span>
@@ -26,7 +26,7 @@ const TotalPrice = ({totalPrice, showPrice, date, selected}) => {
             >
             <button>장바구니에 담기</button>
             </Link>
-        </FooterComponent>
+        </Footer>
     )
 }
 

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-const SectionComponent = styled.section`
+const Section = styled.section`
     ${props =>
         props.isOpen ?
         css`
@@ -18,7 +18,7 @@ const SectionComponent = styled.section`
         display: none;
         `}
 `;
-const CloseBtnComponent = styled.button`
+const CloseBtn = styled.button`
     width: 100%;
     height: 3em;
     font-size: 1.5rem;
@@ -31,12 +31,12 @@ const CloseBtnComponent = styled.button`
         cursor: pointer;
     }
 `;
-const DivComponent = styled.div`
+const Div = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-around;
 `;
-const ButtonComponent = styled.button`
+const Button = styled.button`
     height: 3rem;
     width: 8rem;
     background-color: black;
@@ -47,10 +47,10 @@ const ButtonComponent = styled.button`
         cursor: pointer;
     }   
 `;
-const UlComponent = styled.ul`
+const Ul = styled.ul`
     width: 80%;
 `;
-const LiComponent = styled.li`
+const Li = styled.li`
     width: 100%;
     margin-top: 1em;
     padding-top: 1em;
@@ -61,25 +61,25 @@ const LiComponent = styled.li`
 `;
 const SideBar = ({onClick, isOpen}) => {
     return(
-        <SectionComponent isOpen={isOpen}>
-            <CloseBtnComponent onClick={onClick}>
+        <Section isOpen={isOpen}>
+            <CloseBtn onClick={onClick}>
                 <i className="fas fa-times"></i>
-            </CloseBtnComponent>
-        <DivComponent>
+            </CloseBtn>
+        <Div>
             <Link to="/join">
-                <ButtonComponent>회원 가입</ButtonComponent>
+                <Button>회원 가입</Button>
             </Link>
             <Link to="/login">
-                <ButtonComponent>로그인</ButtonComponent>
+                <Button>로그인</Button>
             </Link>
-        </DivComponent>
-        <UlComponent>
+        </Div>
+        <Ul>
             <Link to="/">
-                <LiComponent>메뉴</LiComponent>
+                <Li>메뉴</Li>
             </Link>
-            <LiComponent>고객센터</LiComponent>
-        </UlComponent>
-        </SectionComponent>
+            <Li>고객센터</Li>
+        </Ul>
+        </Section>
     );
 };
 

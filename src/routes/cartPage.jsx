@@ -1,11 +1,11 @@
-import Footer from "../components/footer"
-import Header from "../components/header"
-import SideBar from "../components/sideBar";
+import Footer from "../components/Footer";
+import Header from "../components/Header"
+import SideBar from "../components/SideBar";
 import styled from "styled-components";
-import CartMenus from "../components/cartMenus";
+import CartMenus from "../components/CartMenus";
 import { Link, useLocation } from "react-router-dom";
 
-const SectionComponent = styled.section`
+const Section = styled.section`
     height: 100vh;
     min-height: 300px;
     display: flex;
@@ -14,7 +14,7 @@ const SectionComponent = styled.section`
     justify-content: space-between;
     background-color: yellowgreen;
 `;
-const MainComponent = styled.main`
+const Main = styled.main`
     height: 100%;
     width: 90vw;
     max-width: 700px;
@@ -26,7 +26,7 @@ const MainComponent = styled.main`
         width: 90vw;
     }
 `;
-const ButtonsComponent = styled.div`
+const Buttons = styled.div`
     background-color: pink;
     height: 4rem;
     width: 70vw;
@@ -57,9 +57,9 @@ const CartPage = ({onClick, isOpen}) => {
     const selected = location.state.selected;
     
     return (
-        <SectionComponent>
+        <Section>
         <Header></Header>
-        <MainComponent>
+        <Main>
             <h1>장바구니 목록</h1>
             <div>
             {selected.length === 0 ? 
@@ -67,16 +67,16 @@ const CartPage = ({onClick, isOpen}) => {
             <CartMenus selected={selected}></CartMenus>
             }
             </div>
-        </MainComponent>
-        <ButtonsComponent>
+        </Main>
+        <Buttons>
         <button>장바구니 비우기</button>
         <Link to='/orderType'>
         <button>주문하기</button>
         </Link>
-        </ButtonsComponent>
+        </Buttons>
         <Footer onClick={onClick} isOpen={isOpen}></Footer>
         <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
-        </SectionComponent>
+        </Section>
     );
 };
 

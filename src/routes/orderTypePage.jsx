@@ -1,17 +1,17 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Login from '../components/login';
-import NotUserOrder from "../components/notUserOrder";
+import Login from '../components/Login';
+import NotUserOrder from "../components/NotUserOrder";
 
-const DivComponent = styled.div`
+const Div = styled.div`
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 `;
-const SectionComponent = styled.section`
+const Section = styled.section`
     position: relative;
     width: 60%;
     max-width: 500px;
@@ -27,7 +27,7 @@ const SectionComponent = styled.section`
         height: 90%;
     }
 `;
-const HeaderComponent = styled.header`
+const Header = styled.header`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +48,7 @@ const HeaderComponent = styled.header`
         }
     }
 `;
-const MainComponent = styled.main`
+const Main = styled.main`
     width: 80%;
     height: 60%;
 `;
@@ -66,9 +66,9 @@ const OrderTypePage = () => {
     }
 
     return (
-        <DivComponent>
-        <SectionComponent>
-            <HeaderComponent>
+        <Div>
+        <Section>
+            <Header>
                 <Link to="/">
                     <button className="closeBtn">
                         <i className="fas fa-times"></i>
@@ -79,12 +79,12 @@ const OrderTypePage = () => {
                     <button onClick={handleShow}>회원</button>
                     <button onClick={handleShow}>비회원</button>
                 </div>
-            </HeaderComponent>
-            <MainComponent>
+            </Header>
+            <Main>
             {isUser ? <Login/> : <NotUserOrder/>}
-            </MainComponent>
-        </SectionComponent>
-        </DivComponent>
+            </Main>
+        </Section>
+        </Div>
     );
 }
 

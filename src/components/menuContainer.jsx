@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import Menu from './menu';
+import Menu from './Menu';
 
-const SectionComponent = styled.section`
+const Section = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
     padding: 3em 0em 3em 0em;
 `;
-const MenusComponent = styled.div`
+const Menus = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1em;
@@ -17,10 +17,10 @@ const MenusComponent = styled.div`
 
 const MenuContainer = ({subTitle, title, menus, onClick, showPrice, foodImgs01, foodImgs02}) => {
     return (
-        <SectionComponent>
+        <Section>
             <span>{subTitle}</span>
             {<strong>{title}</strong>}
-            <MenusComponent>
+            <Menus>
             {menus.map((menu, idx) => 
                 (<Menu 
                     key={menu.id}
@@ -30,8 +30,8 @@ const MenuContainer = ({subTitle, title, menus, onClick, showPrice, foodImgs01, 
                     showPrice={showPrice}
                 />)
             )}
-            </MenusComponent>
-        </SectionComponent>
+            </Menus>
+        </Section>
     );
 }
 

@@ -1,10 +1,10 @@
-import Header from '../components/header';
-import Footer from '../components/footer';
-import SideBar from '../components/sideBar';
-import Profile from '../components/profile';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SideBar from '../components/SideBar';
+import Profile from '../components/Profile';
 import styled from 'styled-components';
 
-const SectionComponent = styled.section`
+const Section = styled.section`
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -13,7 +13,7 @@ const SectionComponent = styled.section`
     justify-content: space-between;
     background-color: yellowgreen;
 `;
-const MainComponent = styled.main`
+const Main = styled.main`
     width: 50vw;
     max-width: 500px;
     @media screen and (max-width: 64rem) {
@@ -23,14 +23,14 @@ const MainComponent = styled.main`
 
 const ProfilePage = ({onClick, isOpen}) => {
     return (
-        <SectionComponent>
+        <Section>
             <Header></Header>
-            <MainComponent>
+            <Main>
                 <Profile></Profile>
-            </MainComponent>
+            </Main>
             <Footer onClick={onClick} isOpen={isOpen}></Footer>
         <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
-        </SectionComponent>
+        </Section>
     );
 }
 

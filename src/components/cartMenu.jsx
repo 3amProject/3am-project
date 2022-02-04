@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const LiComponent = styled.li`
+const Li = styled.li`
     background-color: pink;
     width: 90%;
     display: flex;
@@ -20,7 +20,7 @@ const LiComponent = styled.li`
 
 const CartMenu = ({menu}) => {
     return (
-        <LiComponent>
+        <Li>
             <button>
                 <i className="fas fa-minus"></i>
             </button>
@@ -30,7 +30,7 @@ const CartMenu = ({menu}) => {
                 <input type="number" min="1" step="1" value={menu.qty}/>
                 <button>+</button>
             </div>
-        </LiComponent>
+        </Li>
     );
 }
 

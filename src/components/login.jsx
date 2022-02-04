@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Button from './button';
+import Button from './Button';
 import login from '../service/login';
 
-const DivComponent = styled.div`
+const Div = styled.div`
     display: flex;
     flex-direction: column;
     margin: 2em 0em 1em 0em;
@@ -22,7 +22,7 @@ const DivComponent = styled.div`
         }
     }
 `;
-const FooterComponent = styled.footer`
+const Footer = styled.footer`
     display: flex;
     flex-direction: column;
     & div {
@@ -49,7 +49,7 @@ const Login = () => {
     })
 
     const handleLogin = (user) => {
-        const data = login(user);
+        const data = login(JSON.stringify(user));
         if(!!data.error){
             window.alert(data.error);
         } else {
@@ -59,7 +59,7 @@ const Login = () => {
 
     return (
         <>
-        <DivComponent>
+        <Div>
             <input required
             value={formData.userId}
             onChange={(e) => setFormData(oldFormData => ({...oldFormData, userId: e.target.value}))}
@@ -78,8 +78,8 @@ const Login = () => {
                 <label htmlFor="checkLogin">자동 로그인</label>
                 </div>
             </form>
-        </DivComponent>
-        <FooterComponent>
+        </Div>
+        <Footer>
             <Button text="로그인" onClick={() => handleLogin(formData)}></Button>
             <div>
                 <button>아이디 찾기</button>
@@ -89,7 +89,7 @@ const Login = () => {
             <Link to='/join'>
                 <Button text="회원 가입"></Button>
             </Link>
-        </FooterComponent>
+        </Footer>
         </>
     );
 }

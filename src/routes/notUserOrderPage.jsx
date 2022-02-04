@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import SideBar from "../components/sideBar";
-import Button from "../components/button";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import SideBar from "../components/SideBar";
+import Button from "../components/Button";
 
-const SectionComponent = styled.section`
+const Section = styled.section`
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -13,7 +13,7 @@ const SectionComponent = styled.section`
     justify-content: space-between;
     background-color: yellowgreen;
 `;
-const MainComponent = styled.main`
+const Main = styled.main`
     background-color: beige;
     width: 50vw;
     max-width: 500px;
@@ -28,9 +28,9 @@ const MainComponent = styled.main`
 
 const NotUserOrderPage = ({onClick, isOpen}) => {
     return (
-        <SectionComponent>
+        <Section>
         <Header></Header>
-        <MainComponent>
+        <Main>
             <h1>주문 상품 정보</h1>
 
             <h1>주문자 정보</h1>
@@ -49,10 +49,10 @@ const NotUserOrderPage = ({onClick, isOpen}) => {
                 <p>총 가격: 원</p>
             <Button text="결제하기"></Button>
             <Button text="취소"></Button>
-        </MainComponent>
+        </Main>
         <Footer onClick={onClick} isOpen={isOpen}></Footer>
         <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
-        </SectionComponent>
+        </Section>
     );
 }
 
