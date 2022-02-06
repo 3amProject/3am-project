@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./routes/home";
-import JoinPage from "./routes/joinPage";
-import LoginPage from "./routes/loginPage";
-import ProfilePage from "./routes/profilePage";
-import ProfileEditPage from './routes/profileEditPage';
-import CartPage from "./routes/cartPage";
-import OrderTypePage from "./routes/orderTypePage";
-import UserOrderPage from "./routes/userOrderPage";
-import NotUserOrderPage from "./routes/notUserOrderPage";
+import Home from "./routes/Home";
+import JoinPage from "./routes/JoinPage";
+import LoginPage from "./routes/LoginPage";
+import ProfilePage from "./routes/ProfilePage";
+import ProfileEditPage from './routes/ProfileEditPage';
+import CartPage from "./routes/CartPage";
+import OrderTypePage from "./routes/OrderTypePage";
+import UserOrderPage from "./routes/UserOrderPage";
+import NotUserOrderPage from "./routes/NotUserOrderPage";
 
 const App = ({authentication}) => {
   const menus = [

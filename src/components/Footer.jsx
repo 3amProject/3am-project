@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Footer = styled.footer`
+const FooterComponent = styled.footer`
     height: 5em;
     width: 70vw;
     background-color: teal;
@@ -21,7 +21,7 @@ const Btn = styled.button`
 
 const Footer = ({onClick}) => {
     return (
-        <Footer>
+        <FooterComponent>
             <Btn onClick={onClick}>
                 <i className="fas fa-bars"></i>
             </Btn>
@@ -35,7 +35,7 @@ const Footer = ({onClick}) => {
                 <i className="fas fa-user"></i>
             </Btn>
             </Link>
-        </Footer>
+        </FooterComponent>
     )
 };
 

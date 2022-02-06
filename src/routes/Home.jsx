@@ -7,7 +7,7 @@ import MenuContainer from '../components/MenuContainer';
 import SideBar from '../components/SideBar';
 import TotalPrice from '../components/TotalPrice';
 
-const Home = styled.section`
+const Section = styled.section`
     height: 100vh;
     min-height: 300px;
     display: flex;
@@ -66,7 +66,7 @@ const Home = ({onClick, isOpen, menus, authentication}) => {
     const [date, setDate] = useState(new Date());
 
     return (
-        <Home>
+        <Section>
             <Header></Header>
             <Main>
             <Div>
@@ -108,7 +108,7 @@ const Home = ({onClick, isOpen, menus, authentication}) => {
             />
             <Footer onClick={onClick} isOpen={isOpen}></Footer>
             <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
-        </Home>
+        </Section>
     );
 };
 

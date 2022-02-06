@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+const Btn = styled.button`
     height: 3rem;
     width: 100%;
     background-color: black;
@@ -14,7 +14,7 @@ const Button = styled.button`
 
 const Button = ({text, onClick}) => {
     return (
-        <Button onClick={onClick}>{text}</Button>
+        <Btn onClick={onClick}>{text}</Btn>
     );
 }
 

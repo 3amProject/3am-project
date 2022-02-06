@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled, {css} from "styled-components";
 
-const Header = styled.header`
+const HeaderComponent = styled.header`
     height: 4em;
     width: 70vw;
     background-color: teal;
@@ -25,7 +25,7 @@ const Div = styled.div`
 
 const Header = () => {
     return (
-        <Header>
+        <HeaderComponent>
             <Div>
                 <i className="fas fa-shipping-fast"></i>
                 <span> 새벽세시</span>
@@ -37,7 +37,7 @@ const Header = () => {
                     <i className="fas fa-shopping-cart"></i>
                 </Link>
             </Div>
-        </Header>
+        </HeaderComponent>
     )
 }
 
