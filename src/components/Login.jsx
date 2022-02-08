@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './Button';
-import login from '../service/login';
+import { signIn } from '../service/authService';
 
 const Div = styled.div`
     display: flex;
@@ -49,11 +49,11 @@ const Login = () => {
     })
 
     const handleLogin = (user) => {
-        const data = login(JSON.stringify(user));
+        const data = signIn(JSON.stringify(user));
         if(!!data.error){
             window.alert(data.error);
         } else {
-            window.location.href = '/';
+            window.location.href = '/cart';
         }
     }
 

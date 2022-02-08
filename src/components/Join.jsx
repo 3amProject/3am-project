@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from './Button';
-import signUp from '../service/signUp';
+import { signUp } from '../service/authService';
 import styled from 'styled-components';
 
 const Section = styled.section`
@@ -32,7 +32,6 @@ const Join = () => {
     
     const handleSignUp = (user) => {
         const userInfo = signUp(user, ['name','userId','password','password2','email','address','phoneNum']);
-        console.log(userInfo);
         userInfo.then((data) => {
             window.alert(data.message);
         })

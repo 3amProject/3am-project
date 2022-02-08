@@ -37,7 +37,7 @@ const Calendar = styled.div`
     padding-top: 3em;
 `;
 
-const Home = ({onClick, isOpen, menus, authentication}) => {
+const Home = ({onClick, isOpen, menus}) => {
 
     const [totalPrice, setTotalPrice] = useState(0);
     const [selected, setSelected] = useState([]);

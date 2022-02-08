@@ -3,13 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import App from './App';
-import Authentication from './service/authentication';
+import { getMenus } from './service/noAuthService';
 
-const authentication = new Authentication();
+const menus = getMenus().then(
+  res => {
+    console.log(res);
+    return res.data.productList;
+  }
+);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App authentication={authentication}/>
+    <App menus={menus}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );
