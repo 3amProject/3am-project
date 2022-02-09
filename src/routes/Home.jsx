@@ -38,6 +38,8 @@ const Calendar = styled.div`
 `;
 
 const Home = ({onClick, isOpen, menus}) => {
+    const salads = menus.slice(0,9);
+    const convenFoods = menus.slice(9);
 
     const [totalPrice, setTotalPrice] = useState(0);
     const [selected, setSelected] = useState([]);
@@ -84,7 +86,7 @@ const Home = ({onClick, isOpen, menus}) => {
                 <MenuContainer
                     subTitle="매일 구매한 신선한 재료로 당일 조리"
                     title="새벽다섯시 샐러드"
-                    menus={menus}
+                    menus={salads}
                     foodImgs01={[1,2,3,4,5,6,7,8,9]}
                     onClick={handleAdd}
                     showPrice={showPrice}
@@ -92,7 +94,7 @@ const Home = ({onClick, isOpen, menus}) => {
                 <MenuContainer
                     subTitle="매일 하나씩만 받기 어려웠던"
                     title="건강 간편식"
-                    menus={menus}
+                    menus={convenFoods}
                     foodImgs02={[10,11,12,13,14,15,16,17,18]}
                     onClick={handleAdd}
                     showPrice={showPrice}

@@ -29,9 +29,9 @@ const Menu = ({menu, onClick, showPrice, imgUrl}) => {
             <div>
                 <img src={imgUrl} alt="img" />
             </div>
-            <p>{menu.name}</p>
+            <p>{menu.productName}</p>
             <Footer>
-                <span>{showPrice(menu.price)}</span>
+                <span>{showPrice(menu.productPrice)}</span>
                 <Button
                 onClick={()=>onClick(menu)}>
                     <i className="fas fa-shopping-basket"></i>

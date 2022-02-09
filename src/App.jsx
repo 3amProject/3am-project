@@ -10,8 +10,9 @@ import CartPage from "./routes/CartPage";
 import OrderTypePage from "./routes/OrderTypePage";
 import UserOrderPage from "./routes/UserOrderPage";
 import NotUserOrderPage from "./routes/NotUserOrderPage";
+import { getMenus } from './service/noAuthService';
 
-const App = ({menus}) => {
+const App = () => {
   const isLoggedIn = () => {
     return localStorage.getItem('accessToken') ? true : false;
   }
@@ -22,9 +23,17 @@ const App = ({menus}) => {
     setIsOpen(isOpen => !isOpen);
   }
 
+  const [menus, setMenus] = useState([]);
+
   useEffect(() => {
     setAuthUser(()=>isLoggedIn());
   },[authUser])
+
+  useEffect(() => {
+    getMenus()
+    .then((result) => setMenus(result))
+    .catch((error) => console.log(error));
+  }, []);
 
   return (
     <BrowserRouter>
