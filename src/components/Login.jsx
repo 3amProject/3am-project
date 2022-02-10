@@ -48,12 +48,15 @@ const Login = () => {
         password: ''
     })
 
-    const handleLogin = (user) => {
-        const data = signIn(JSON.stringify(user));
-        if(!!data.error){
-            window.alert(data.error);
-        } else {
-            window.location.href = '/cart';
+    const handleLogin = async(user) => {
+        const data = await signIn(user);
+        
+        if(data){
+            if(!!data.error){
+                window.alert(data.error);
+            } else {
+                window.location.href = '/';
+            }
         }
     }
 

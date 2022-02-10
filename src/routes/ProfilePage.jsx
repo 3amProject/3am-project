@@ -26,7 +26,7 @@ const ProfilePage = ({onClick, isOpen}) => {
         <Section>
             <Header></Header>
             <Main>
-                <Profile></Profile>
+                <Profile />
             </Main>
             <Footer onClick={onClick} isOpen={isOpen}></Footer>
         <SideBar onClick={onClick} isOpen={isOpen}></SideBar>

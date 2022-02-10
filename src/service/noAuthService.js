@@ -4,9 +4,9 @@ import { customAxios } from "./customAxios";
 export const getMenus = async() => {
     try {
         const res =  await customAxios.get('/');
-        return await res.data.data.productList;
+        console.log(res);
+        return await res.data.data;
     } catch (error) {
         console.log(error);
     }
 }
-

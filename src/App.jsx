@@ -33,7 +33,7 @@ const App = () => {
     getMenus()
     .then((result) => setMenus(result))
     .catch((error) => console.log(error));
-  }, []);
+  }, [getMenus]);
 
   return (
     <BrowserRouter>

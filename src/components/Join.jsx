@@ -30,12 +30,16 @@ const Join = () => {
         phoneNum: ''
     });
     
-    const handleSignUp = (user) => {
-        const userInfo = signUp(user, ['name','userId','password','password2','email','address','phoneNum']);
-        userInfo.then((data) => {
-            window.alert(data.message);
-        })
-        .catch((error)=>console.log(error));
+    const handleSignUp = async (user) => {
+        const userInfo = await signUp(user, ['name','userId','password','password2','email','address','phoneNum']);
+        if(userInfo){
+            if(!!userInfo.error){
+                window.alert(userInfo.error);
+            } else {
+                window.alert('회원가입이 완료되었습니다 👏');
+                window.location.href = '/';
+            }
+        }
     };
 
     return (

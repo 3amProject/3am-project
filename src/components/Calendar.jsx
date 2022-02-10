@@ -3,6 +3,9 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 const ReactCalendar = ({date, onChange}) => {
+    const now = Date.now();
+    const deliveryDate = now + (1000 * 60 * 60 * 24 * 2);
+
     return (
         <Calendar
             onChange={onChange}
@@ -10,7 +13,7 @@ const ReactCalendar = ({date, onChange}) => {
             calendarType="Hebrew"
             prev2Label={null}
             next2Label={null}
-            minDate={new Date()}
+            minDate={new Date(deliveryDate)}
         ></Calendar>
     );
 }

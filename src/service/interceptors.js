@@ -3,7 +3,7 @@ import axios from "axios";
 const API_URL = "http://localhost:8000";
 
 const onRequest = (config) => {
-    const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+    const accessToken = localStorage.getItem("accessToken");
     if(accessToken){
         config.headers['Authorization'] = `Bearer ${accessToken}`;
     }
@@ -20,11 +20,11 @@ const onResponse = (response) => {
 };
 
 const onResponseError = async (error) => {
-    if (error.response) {
+    if (error) {
     // Access Token was expired
-    if (error.response.status === 401) {
-        const oldRefreshToken = JSON.parse(localStorage.getItem('refreshToken'));
-        const userId = JSON.parse(localStorage.getItem('userId'));
+    if (error.code === 'ER101') {
+        const oldRefreshToken = localStorage.getItem("refreshToken");
+        const userId = localStorage.getItem("userId");
 
         try {
         const res = await axios.post(`${API_URL}/auth/refreshToken`, {
@@ -32,10 +32,10 @@ const onResponseError = async (error) => {
             userId
         });
 
-        const { accessToken, refreshToken } = res.data;
+        const { accessToken, refreshToken } = res.data.data;
 
-        localStorage.setItem('accessToken', JSON.stringify(accessToken));
-        localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
+        localStorage.setItem("accessToken", JSON.stringify(accessToken));
+        localStorage.setItem("refreshToken", JSON.stringify(refreshToken));
     
         return;
         } catch (_error) {
