@@ -45,15 +45,17 @@ const Home = ({onClick, isOpen, menus}) => {
     const [selected, setSelected] = useState([]);
 
     const handleAdd = (menu) => {
-        setTotalPrice((oldPrice) => oldPrice + menu.price);
-        setSelected((selected) => {
-            const updated = [...selected];
-            const target = updated.findIndex((v) => v.id === menu.id);
+        const clickedMenu = {productSeq: menu.id, productQty: menu.productQty};
+        setTotalPrice((oldPrice) => oldPrice*1 + menu.productPrice*1);
+        setSelected((oldSelected) => {
+            const updated = [...oldSelected];
+            const target = updated.findIndex((v) => v.productSeq === clickedMenu.productSeq);
             if(target === -1){
-                updated.push(menu);
-            } else {
-                updated[target]['qty']++;
+                updated.push({...clickedMenu, productQty:1});
+            }else{
+                ++updated[target]['productQty'];
             }
+            console.log(updated);
             return updated;
         });
     }
@@ -65,7 +67,7 @@ const Home = ({onClick, isOpen, menus}) => {
         return newPrice.reverse().join('') + '원';
     }
 
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState();
 
     return (
         <Section>

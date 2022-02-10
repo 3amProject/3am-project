@@ -121,3 +121,25 @@ export const putProfileEdit = async(user, required = []) => {
         console.log(_error);
     }
 }
+
+
+// 회원 장바구니 담기
+export const putInCart = async(selected) => {
+    try {
+        const res = await customAxios.post('/cart', JSON.stringify({cartList : selected}));
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+// 회원 장바구니 리스트 조회
+export const getCart = async() => {
+    try {
+        const res = await customAxios.get('/cart');
+        return await res.data.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
