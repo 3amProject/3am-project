@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { useLocation } from "react-router";
 import CartMenu from "./CartMenu";
+import { useState, useEffect } from "react";
+import { getCart } from "../service/authService";
+import Loading from './Loading';
 
 const Div = styled.div`
     background-color: white;
@@ -15,21 +17,25 @@ const Div = styled.div`
     }
 `;
 
-const CartMenus = ({selected}) => {
-    const location = useLocation();
-    const formatDate = (date) => new Intl.DateTimeFormat('fr-CA', {
-        year: "numeric", 
-        month: "2-digit", 
-        day: "2-digit"
-    }).format(date);
+const CartMenus = () => {
+    const [menus, setMenus] = useState([]);
+
+    useEffect(() => {
+        getCart()
+        .then((result) => setMenus(result))
+        .catch((error) => console.log(error));
+    }, []);
 
     return (
-        <Div>
-        <p>배송 날짜 : {formatDate(location.state.date)}</p>
+        <>
+        {
+        menus ?
+        (<Div>
+        <p>배송 날짜 : {menus[0]["deliveryDate"]}</p>
         <details> 
             <summary>메뉴</summary>
             <ul>
-            {selected.map(menu => (
+            {menus.map(menu => (
             <CartMenu
             key={menu.id}
             menu={menu}
@@ -37,7 +43,10 @@ const CartMenus = ({selected}) => {
             ))}
             </ul>    
         </details>
-        </Div>
+        </Div>) :
+        (<Loading/>)
+        }
+        </>
     );
 }
 
