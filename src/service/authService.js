@@ -77,7 +77,7 @@ export const signOut = () => {
 export const getProfile = async() => {
     try {
         const res = await customAxios.get('/user/myPage');
-        return await res.data.data.userInfo;
+        return await res.data.data;
     } catch (error) {
         console.log(error);
     }
@@ -139,6 +139,28 @@ export const getCart = async() => {
     try {
         const res = await customAxios.get('/cart');
         return await res.data.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+// 회원 주문 페이지 조회
+export const getOrderPage = async() => {
+    try {
+        const res = await customAxios.get('/order');
+        return await res.data.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+// 회원 결제
+export const postOrder = async() => {
+    try {
+        const res = await customAxios.post('/order/pay');
+        return res;
     } catch (error) {
         console.log(error);
     }

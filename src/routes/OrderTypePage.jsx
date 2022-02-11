@@ -53,7 +53,7 @@ const Main = styled.main`
     height: 60%;
 `;
 
-const OrderTypePage = () => {
+const OrderTypePage = ({authUser}) => {
     const [isUser, setIsUser] = useState(true);
 
     // security api 로 로그인 화면 조회해야 함
@@ -66,7 +66,10 @@ const OrderTypePage = () => {
     }
 
     return (
-        <Div>
+        <>
+        {authUser ?
+        window.location.href = '/userOrder' :
+        (<Div>
         <Section>
             <Header>
                 <Link to="/">
@@ -84,7 +87,9 @@ const OrderTypePage = () => {
             {isUser ? <Login/> : <NotUserOrder/>}
             </Main>
         </Section>
-        </Div>
+        </Div>)
+        }
+        </>
     );
 }
 
