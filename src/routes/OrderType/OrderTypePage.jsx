@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import Login from '../components/Login';
-import NotUserLogin from '../components/NotUserLogin';
+import styled from "styled-components";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Login from '../Login/Login';
+import NotUserOrder from "../NotUserOrder/NotUserOrder";
 
 const Div = styled.div`
     width: 100vw;
@@ -50,21 +50,26 @@ const Header = styled.header`
 `;
 const Main = styled.main`
     width: 80%;
-    height: 50%;
+    height: 60%;
 `;
 
-const LoginPage = () => {
-    const [isForUser, setIsForUser] = useState(true);
+const OrderTypePage = ({authUser}) => {
+    const [isUser, setIsUser] = useState(true);
+
+    // security api 로 로그인 화면 조회해야 함
     const handleShow = (e) => {
         if(e.target.textContent === '회원'){
-            setIsForUser(true);
+            setIsUser(true);
         }else{
-            setIsForUser(false);
+            setIsUser(false);
         }
     }
 
     return (
-        <Div>
+        <>
+        {authUser ?
+        window.location.href = '/userOrder' :
+        (<Div>
         <Section>
             <Header>
                 <Link to="/">
@@ -79,11 +84,13 @@ const LoginPage = () => {
                 </div>
             </Header>
             <Main>
-            {isForUser ? <Login/> : <NotUserLogin/>}
+            {isUser ? <Login/> : <NotUserOrder/>}
             </Main>
         </Section>
-        </Div>
+        </Div>)
+        }
+        </>
     );
 }
 
-export default LoginPage;
+export default OrderTypePage;

@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthRoute from './routes/AuthRoute';
-import Home from "./routes/Home";
-import JoinPage from "./routes/JoinPage";
-import LoginPage from "./routes/LoginPage";
-import ProfilePage from "./routes/ProfilePage";
-import ProfileEditPage from './routes/ProfileEditPage';
-import CartPage from "./routes/CartPage";
-import OrderTypePage from "./routes/OrderTypePage";
-import UserOrderPage from "./routes/UserOrderPage";
-import NotUserOrderPage from "./routes/NotUserOrderPage";
+import Home from "./routes/Home/Home";
+import JoinPage from "./routes/Join/JoinPage";
+import LoginPage from "./routes/Login/LoginPage";
+import ProfilePage from "./routes/Profile/ProfilePage";
+import ProfileEditPage from './routes/ProfileEdit/ProfileEditPage';
+import CartPage from "./routes/Cart/CartPage";
+import OrderTypePage from "./routes/OrderType/OrderTypePage";
+import UserOrderPage from "./routes/UserOrder/UserOrderPage";
+import NotUserOrderPage from "./routes/NotUserOrder/NotUserOrderPage";
 import { getMenus } from './service/noAuthService';
 
 const App = () => {
   const isLoggedIn = () => {
-    return localStorage.getItem('accessToken') ? true : false;
+    return !!localStorage.getItem('accessToken');
   }
   const [authUser, setAuthUser] = useState(isLoggedIn);
 
@@ -33,7 +33,7 @@ const App = () => {
     getMenus()
     .then((result) => setMenus(result))
     .catch((error) => console.log(error));
-  }, [getMenus]);
+  }, []);
 
   return (
     <BrowserRouter>

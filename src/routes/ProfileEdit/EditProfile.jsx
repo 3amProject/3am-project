@@ -1,7 +1,7 @@
-import Button from './Button';
+import Button from '../../components/Button';
 import styled from 'styled-components';
-import { putProfileEdit, signOut } from '../service/authService';
-import { getProfileEdit } from '../service/authService';
+import { putProfileEdit, signOut } from '../../service/authService';
+import { getProfileEdit } from '../../service/authService';
 import { useState, useEffect } from 'react';
 
 const Section = styled.section`
@@ -39,13 +39,17 @@ const EditProfile = () => {
     }
 
     const handleEdit = async(formData) => {
-        const res = await putProfileEdit(formData, ['name','email','address','phoneNum']);
-        if(res){
-            console.log(res);
-            if(!!res.error){
-                window.alert(res.error);
-            } else {
-                window.alert('회원 정보 수정 완료 👍');
+        if(!window.confirm('회원 정보를 수정하시겠습니까?')){
+            return;
+        } else {
+            const res = await putProfileEdit(formData, ['name','email','address','phoneNum']);
+            if(res){
+                console.log(res);
+                if(!!res.error){
+                    window.alert(res.error);
+                } else {
+                    window.alert('회원 정보 수정 완료 👍');
+                }
             }
         }
     }

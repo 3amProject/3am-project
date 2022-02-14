@@ -2,9 +2,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const FooterComponent = styled.footer`
-    height: 5em;
     width: 70vw;
-    background-color: teal;
+    background-color: var(--beige);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -13,9 +12,8 @@ const FooterComponent = styled.footer`
     }
 `;
 const Btn = styled.button`
-    border: none;
-    background-color: transparent;
-    font-size: 1.5rem;
+    padding: 15px;
+    font-size: 24px;
     cursor: pointer;
 `;
 

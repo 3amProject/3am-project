@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import styled from 'styled-components';
-import ReactCalendar from '../components/Calendar';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import MenuContainer from '../components/MenuContainer';
-import SideBar from '../components/SideBar';
-import TotalPrice from '../components/TotalPrice';
+import ReactCalendar from '../../components/Calendar';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import MenuContainer from './MenuContainer';
+import SideBar from '../../components/SideBar';
+import TotalPrice from '../../components/TotalPrice';
 
 const Section = styled.section`
     height: 100vh;
@@ -14,15 +14,13 @@ const Section = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: yellowgreen;
+    background-color: white;
 `;
 const Main = styled.main`
-    height: 100%;
     width: 90vw;
     max-width: 700px;
     padding: 1em;
     box-sizing: border-box;
-    background-color: bisque;
     overflow: scroll;
     @media screen and (max-width: 64rem) {
         width: 90vw;
@@ -30,6 +28,9 @@ const Main = styled.main`
 `;
 const Div = styled.div`
     margin-top: 5em;
+    & .title {
+        font-size: 18px;
+    }
 `;
 const Calendar = styled.div`
     display: flex;
@@ -37,7 +38,7 @@ const Calendar = styled.div`
     padding-top: 3em;
 `;
 
-const Home = ({onClick, isOpen, menus}) => {
+const Home = memo(({onClick, isOpen, menus}) => {
     const salads = menus.slice(0,9);
     const convenFoods = menus.slice(9);
 
@@ -46,7 +47,7 @@ const Home = ({onClick, isOpen, menus}) => {
 
     const handleAdd = (menu) => {
         const clickedMenu = {productSeq: menu.id, productQty: menu.productQty};
-        setTotalPrice((oldPrice) => oldPrice*1 + menu.productPrice*1);
+        setTotalPrice((oldPrice) => +oldPrice + +menu.productPrice);
         setSelected((oldSelected) => {
             const updated = [...oldSelected];
             const target = updated.findIndex((v) => v.productSeq === clickedMenu.productSeq);
@@ -71,10 +72,10 @@ const Home = ({onClick, isOpen, menus}) => {
 
     return (
         <Section>
-            <Header></Header>
+            <Header />
             <Main>
             <Div>
-                <h2>1. 배송 날짜 선택</h2>
+                <h2 className="title">1. 배송 날짜 선택</h2>
                 <Calendar>
                     <ReactCalendar
                     date={date}
@@ -83,7 +84,7 @@ const Home = ({onClick, isOpen, menus}) => {
                 </Calendar>
             </Div>
             <Div>
-                <h2>2. 메뉴 선택</h2>
+                <h2 className="title">2. 메뉴 선택</h2>
                 <div className="menuList">
                 <MenuContainer
                     subTitle="매일 구매한 신선한 재료로 당일 조리"
@@ -110,10 +111,10 @@ const Home = ({onClick, isOpen, menus}) => {
             date={date}
             selected={selected}
             />
-            <Footer onClick={onClick} isOpen={isOpen}></Footer>
-            <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
+            <Footer onClick={onClick} isOpen={isOpen} />
+            <SideBar onClick={onClick} isOpen={isOpen} />
         </Section>
     );
-};
+});
 
 export default Home;

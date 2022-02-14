@@ -1,13 +1,23 @@
 import styled from "styled-components";
 import { putInCart } from "../service/authService";
 
-const Footer = styled.footer`
-    height: 5em;
+const Div = styled.div`
     width: 70vw;
     background-color: ghostwhite;
     display: flex;
+    box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
+    & div {
+        padding-left: 15px;
+    }
+    & button {
+        font-size: 16px;
+        color: var(--lightBeige);
+        background-color: black;
+        padding: 15px 30px;
+        cursor: pointer;
+    }
     @media screen and (max-width: 64rem) {
         width: 90vw;
     }
@@ -33,13 +43,13 @@ const TotalPrice = ({totalPrice, showPrice, date, selected}) => {
     }
 
     return (
-        <Footer>
+        <Div>
             <div>
-                <span>결제금액</span>
+                <span>결제금액 </span>
                 <span>총 {showPrice(totalPrice)}</span>
             </div>
             <button onClick={()=>handlePutInCart()}>장바구니에 담기</button>
-        </Footer>
+        </Div>
     )
 }
 

@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import SideBar from "../components/SideBar";
-import Button from '../components/Button';
-import { getOrderPage, postOrder } from "../service/authService";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import SideBar from "../../components/SideBar";
+import Button from '../../components/Button';
+import { getOrderPage, postOrder } from "../../service/authService";
 import { useEffect, useState } from "react";
-import Loading from "../components/Loading";
+import Loading from "../../components/Loading";
 import { Link } from "react-router-dom";
 
 const Section = styled.section`
@@ -71,16 +71,17 @@ const UserOrderPage = ({onClick, isOpen}) => {
         {userOrderInfo ? 
         (
         <Section>
-        <Header></Header>
+        <Header/>
         <Main>
             <h1>주문 상품 정보</h1>
             <ul>
                 {userOrderInfo.cartList.map((v)=>{
+                    const {productName, productQty, totalPrice} = v;
                     return (
                     <li>
-                        <p>{v.product.productName}</p>
-                        <p>{v.productQty}</p>
-                        <p>{v.totalPrice}</p>
+                        <p>{productName}</p>
+                        <p>{productQty}</p>
+                        <p>{totalPrice}</p>
                     </li>);
                 })}
             </ul>
@@ -106,16 +107,16 @@ const UserOrderPage = ({onClick, isOpen}) => {
             <h1>결제 정보</h1>      
                 <p>총 수량: {getTotalQty()}개</p>
                 <p>총 가격: {getTotalPrice()}원</p>
-            <Button onClick={()=>handleOrder()} text="결제하기"></Button>
+            <Button onClick={()=>handleOrder()} text="결제하기" />
             <Link to='/'>
-            <Button text="취소"></Button>
+            <Button text="취소" />
             </Link>
         </Main>
-        <Footer onClick={onClick} isOpen={isOpen}></Footer>
-        <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
+        <Footer onClick={onClick} isOpen={isOpen} />
+        <SideBar onClick={onClick} isOpen={isOpen} />
         </Section>
         ) :
-        (<Loading/>)
+        (<Loading />)
         }
         </>
     );

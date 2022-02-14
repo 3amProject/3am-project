@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import Join from '../components/Join';
-import SideBar from '../components/SideBar';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import Join from './Join';
+import SideBar from '../../components/SideBar';
 
 const Section = styled.section`
     height: 100vh;
@@ -24,12 +24,12 @@ const Main = styled.main`
 const JoinPage = ({onClick, isOpen}) => {
     return(
         <Section>
-            <Header></Header>
+            <Header />
             <Main>
-                <Join></Join>
+                <Join />
             </Main>
-            <Footer onClick={onClick} isOpen={isOpen}></Footer>
-        <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
+            <Footer onClick={onClick} isOpen={isOpen} />
+        <SideBar onClick={onClick} isOpen={isOpen} />
         </Section>
     );
 }

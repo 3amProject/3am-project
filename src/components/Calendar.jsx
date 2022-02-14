@@ -14,7 +14,7 @@ const ReactCalendar = ({date, onChange}) => {
             prev2Label={null}
             next2Label={null}
             minDate={new Date(deliveryDate)}
-        ></Calendar>
+        />
     );
 }
 

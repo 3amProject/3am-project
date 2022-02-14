@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { deleteProduct, minusProductQty, plusProductQty } from '../service/noAuthService';
+import { deleteProduct, minusProductQty, plusProductQty } from '../../service/noAuthService';
 
 const Li = styled.li`
     background-color: pink;
@@ -19,26 +19,26 @@ const Li = styled.li`
     }
 `;
 
-const CartMenu = ({menu}) => {
-    const [productQty, setProductQty] = useState();
+const CartMenu = memo(({id, name, qty}) => {
+    const [productQty, setProductQty] = useState(0);
     
-    if(menu){
-        setProductQty(+menu.productQty);
-    }
-
     const handleQtyMinus = async() => {
         setProductQty((old)=>old-1);
-        const res = await minusProductQty(menu.id);
-        if(res){
-            window.alert(res.message);
+        const res = await minusProductQty(id);
+
+        console.log(res);
+        if(res && res?.data?.message){
+            window.alert(res.data.message);
         }
     }
 
     const handleQtyPlus = async() => {
         setProductQty((old)=>old+1);
-        const res = await plusProductQty(menu.id);
-        if(res){
-            window.alert(res.message);
+        const res = await plusProductQty(id);
+
+        console.log(res);
+        if(res && res?.data?.message){
+            window.alert(res.data.message);
         }
     }
 
@@ -46,19 +46,24 @@ const CartMenu = ({menu}) => {
         if(!window.confirm('상품을 삭제하시겠습니까?')){
             return;
         } else {
-            const res = await deleteProduct(menu.id);
-            if(res){
-                window.alert(res.message);
+            const res = await deleteProduct(id);
+            if(res && res?.data?.message){
+                window.location.reload();
+                window.alert(res.data.message);
             }
         }
     }
+
+    useEffect(()=>{
+        setProductQty((oldValue)=>oldValue+qty);
+    }, [qty]);
 
     return (
         <Li>
             <button onClick={()=>removeProdut()}>
                 <i className="fas fa-minus"></i>
             </button>
-            <p>{menu && menu.productName}</p>
+            <p>{name}</p>
             <div>
                 <button onClick={()=>handleQtyMinus()}>-</button>
                 <input type="number" min="1" step="1" value={productQty}/>
@@ -66,6 +71,6 @@ const CartMenu = ({menu}) => {
             </div>
         </Li>
     );
-}
+});
 
 export default CartMenu;

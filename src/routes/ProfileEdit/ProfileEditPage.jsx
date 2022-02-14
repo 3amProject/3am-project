@@ -1,7 +1,7 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SideBar from '../components/SideBar';
-import EditProfile from '../components/EditProfile';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import SideBar from '../../components/SideBar';
+import EditProfile from './EditProfile';
 import styled from 'styled-components';
 
 const Section = styled.section`
@@ -24,12 +24,12 @@ const Main = styled.main`
 const ProfileEditPage = ({onClick, isOpen}) => {
     return (
         <Section>
-            <Header></Header>
+            <Header />
             <Main>
-                <EditProfile></EditProfile>
+                <EditProfile />
             </Main>
-            <Footer onClick={onClick} isOpen={isOpen}></Footer>
-        <SideBar onClick={onClick} isOpen={isOpen}></SideBar>
+            <Footer onClick={onClick} isOpen={isOpen} />
+        <SideBar onClick={onClick} isOpen={isOpen} />
         </Section>
     );
 }

@@ -2,8 +2,13 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const Div = styled.div`
-    background-color: cadetblue;
     padding: 1em;
+    & .name {
+        margin: 10px 0;
+        height: 50px;
+        line-height: 20px;
+    }
+    position: relative;
 `;
 const Footer = styled.div`
     display: flex;
@@ -29,7 +34,7 @@ const Menu = ({menu, onClick, showPrice, imgUrl}) => {
             <div>
                 <img src={imgUrl} alt="img" />
             </div>
-            <p>{menu.productName}</p>
+            <p className="name">{menu.productName}</p>
             <Footer>
                 <span>{showPrice(menu.productPrice)}</span>
                 <Button

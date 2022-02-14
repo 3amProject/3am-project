@@ -22,7 +22,6 @@ export const plusProductQty = async(productSeq) => {
     }
 }
 
-
 // 장바구니 수량 차감
 export const minusProductQty = async(productSeq) => {
     try {

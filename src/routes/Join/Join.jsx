@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Button from './Button';
-import { signUp } from '../service/authService';
+import Button from '../../components/Button';
+import { signUp } from '../../service/authService';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Section = styled.section`
     width: 100%;
@@ -76,9 +77,11 @@ const Join = () => {
             type="tel" placeholder="전화번호 '-', 공백 없이 입력" />
         </Form>
         <div>
-            <Button text="취소"></Button>
+            <Link to='/'>
+            <Button text="취소" />
+            </Link>
             <p></p>
-            <Button text="회원 가입" onClick={() => handleSignUp(formData)}></Button>
+            <Button text="회원 가입" onClick={() => handleSignUp(formData)} />
         </div>
         </Section>
     );

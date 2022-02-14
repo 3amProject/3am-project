@@ -7,19 +7,24 @@ const Section = styled.section`
     align-items: center;
     box-sizing: border-box;
     padding: 3em 0em 3em 0em;
+    & .title {
+        font-size: 20px;
+        font-weight: 700;
+        padding-top: 10px;
+    }
 `;
 const Menus = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 1em;
-    margin-top: 2em;
+    gap: 10px;
+    margin-top: 40px;
 `;
 
 const MenuContainer = ({subTitle, title, menus, onClick, showPrice, foodImgs01, foodImgs02}) => {
     return (
         <Section>
             <span>{subTitle}</span>
-            {<strong>{title}</strong>}
+            <span className="title">{title}</span>
             <Menus>
             {menus.map((menu, idx) => 
                 (<Menu 

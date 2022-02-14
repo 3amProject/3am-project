@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from './Button';
+import Button from '../../components/Button';
 
 const Div = styled.div`
     display: flex;
@@ -17,7 +17,7 @@ const NotUserLogin = () => {
         <Div>
         <input type="text" placeholder=" 주문번호"/>
         <input type="text" placeholder=" 주문자명"/>
-        <Button text="확인"></Button>
+        <Button text="확인" />
         </Div>
     );
 }
