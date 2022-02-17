@@ -44,6 +44,7 @@ const Home = memo(({onClick, isOpen, menus}) => {
 
     const [totalPrice, setTotalPrice] = useState(0);
     const [selected, setSelected] = useState([]);
+    const [date, setDate] = useState();
 
     const handleAdd = (menu) => {
         const clickedMenu = {productSeq: menu.id, productQty: menu.productQty};
@@ -68,7 +69,6 @@ const Home = memo(({onClick, isOpen, menus}) => {
         return newPrice.reverse().join('') + '원';
     }
 
-    const [date, setDate] = useState();
 
     return (
         <Section>

@@ -23,10 +23,12 @@ const CartMenu = memo(({id, name, qty}) => {
     const [productQty, setProductQty] = useState(0);
     
     const handleQtyMinus = async() => {
+        if(productQty <= 1){
+            return;
+        }
+
         setProductQty((old)=>old-1);
         const res = await minusProductQty(id);
-
-        console.log(res);
         if(res && res?.data?.message){
             window.alert(res.data.message);
         }
@@ -35,8 +37,6 @@ const CartMenu = memo(({id, name, qty}) => {
     const handleQtyPlus = async() => {
         setProductQty((old)=>old+1);
         const res = await plusProductQty(id);
-
-        console.log(res);
         if(res && res?.data?.message){
             window.alert(res.data.message);
         }
@@ -66,7 +66,7 @@ const CartMenu = memo(({id, name, qty}) => {
             <p>{name}</p>
             <div>
                 <button onClick={()=>handleQtyMinus()}>-</button>
-                <input type="number" min="1" step="1" value={productQty}/>
+                <input type="number" min="1" step="1" value={productQty} readOnly/>
                 <button onClick={()=>handleQtyPlus()}>+</button>
             </div>
         </Li>

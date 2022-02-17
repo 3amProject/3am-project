@@ -31,13 +31,23 @@ const TotalPrice = ({totalPrice, showPrice, date, selected}) => {
     }).format(date);
 
     const handlePutInCart = async() => {
-        if(date && selected){
-            const newDate = formatDate(date);
-            selected.forEach((v)=>{
-                // 각 obj에 date 삽입
-                v['deliveryDate'] = newDate;
-            });
-            const cartList = await putInCart(selected);
+        if(date === undefined){
+            window.alert('날짜를 선택해주세요.');
+            return;
+        }
+        if(selected.length < 1){
+            window.alert('상품을 선택해주세요.');
+            return;
+        }
+
+        const newDate = formatDate(date);
+        selected.forEach((v)=>{
+            // 각 obj에 date 삽입
+            v['deliveryDate'] = newDate;
+        });
+        const cartList = await putInCart(selected);
+        if(cartList && cartList?.data?.code === 'SC003'){
+            window.alert(cartList.data.message);
             return cartList;
         }
     }

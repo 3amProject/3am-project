@@ -127,6 +127,7 @@ export const putProfileEdit = async(user, required = []) => {
 export const putInCart = async(selected) => {
     try {
         const res = await customAxios.post('/cart', JSON.stringify({cartList : selected}));
+        window.location.href = '/cart';
         return res;
     } catch (error) {
         console.log(error);

@@ -75,7 +75,8 @@ const CartPage = ({onClick, isOpen}) => {
         
         const res = await deleteAllProduct();
         if(res && res?.data?.message){
-            window.alert(res.message);        
+            window.location.reload();
+            window.alert(res.data.message);
         }
     }
 
