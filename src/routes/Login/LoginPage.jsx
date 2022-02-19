@@ -8,6 +8,7 @@ import NotUserLogin from './NotUserLogin';
 const Div = styled.div`
     width: 100vw;
     height: 100vh;
+    background-color: var(--beige);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +18,8 @@ const Section = styled.section`
     width: 60%;
     max-width: 500px;
     height: 80%;
-    background-color: teal;
+    background-color: white;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,16 +35,16 @@ const Header = styled.header`
     flex-direction: column;
     align-items: center;
     width: 80%;
-    background-color: tomato;
-    & div {
+    & .title {
+        margin-bottom: 20px;
+    }
+    & .buttons {
         width: 100%;
-        height: 2em;
+        height: 32px;
         display: flex;
         & button {
             flex: 1;
-            border: none;
-            border-bottom: 2px solid white;
-            background-color: none;
+            border-bottom: 2px solid var(--lightgray);
             &: hover {
                 border-bottom: 2px solid black;
             }
@@ -73,8 +75,8 @@ const LoginPage = () => {
                         <i className="fas fa-times"></i>
                     </button>
                 </Link>
-                <h1>로그인</h1>
-                <div>
+                <h1 className="title">로그인</h1>
+                <div className="buttons">
                     <button onClick={handleShow}>회원</button>
                     <button onClick={handleShow}>비회원</button>
                 </div>

@@ -2,25 +2,24 @@ import styled from "styled-components";
 import { putInCart } from "../service/authService";
 
 const Div = styled.div`
-    width: 70vw;
-    background-color: ghostwhite;
-    display: flex;
+    width: 100vw;
+    max-width: 1000px;
     box-sizing: border-box;
-    justify-content: space-between;
-    align-items: center;
+    border-top: 1px solid var(--lightgray);
+    border-left: 1px solid var(--lightgray);
     & div {
-        padding-left: 15px;
+        padding-left: 30px;
     }
     & button {
         font-size: 16px;
-        color: var(--lightBeige);
-        background-color: black;
+        color: var(--lightbeige);
         padding: 15px 30px;
+        background-color: black;
         cursor: pointer;
     }
-    @media screen and (max-width: 64rem) {
-        width: 90vw;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 const TotalPrice = ({totalPrice, showPrice, date, selected}) => {

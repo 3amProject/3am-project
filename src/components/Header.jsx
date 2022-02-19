@@ -3,16 +3,14 @@ import styled from "styled-components";
 
 const HeaderComponent = styled.header`
     background-color: var(--beige);
-    width: 70vw;
+    width: 100vw;
+    max-width: 1000px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media screen and (max-width: 64rem) {
-        width: 90vw;
-    };
 `;
 const Div = styled.div`
-    padding: 15px;
+    padding: 15px 30px;
     font-size: 20px;
     display: flex;
     cursor: pointer;

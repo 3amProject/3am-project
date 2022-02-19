@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import Join from './Join';
@@ -11,13 +12,15 @@ const Section = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: yellowgreen;
+    background-color: white;
 `;
 const Main = styled.main`
-    width: 50vw;
+    width: 90vw;
+    padding: 0 5vw;
     max-width: 500px;
+    overflow: scroll;
     @media screen and (max-width: 64rem) {
-        width: 90vw;
+        box-sizing: border-box;
     }
 `;
 

@@ -1,23 +1,30 @@
 import React, { useState } from 'react';
-import Button from '../../components/Button';
-import { signUp } from '../../service/authService';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { signUp } from '../../service/authService';
+
+import Button from '../../components/Button/Button';
 
 const Section = styled.section`
-    width: 100%;
-    height: 100%;
+    margin: 50px 0;
     display: flex;
     flex-direction: column;
+    & .buttons {
+        display: flex;
+        flex-direction: column;
+    }
 `;
 const Form = styled.form`
     display: flex;
     flex-direction: column;
-    margin: 1.5rem 0;
+    margin: 50px 0;
 `;
 const Input = styled.input`
-    height: 2em;
-    margin-bottom: 0.5em;
+    width: 80%;
+    margin: 0 0 10px 20px;
+    padding: 5px 0 5px 10px;
+    font-size: 16px;
+    border: 1.5px solid var(--lightgray);
+    border-radius: 10px;
 `;
 
 const Join = () => {
@@ -45,7 +52,7 @@ const Join = () => {
 
     return (
         <Section>
-        <h1>회원 가입</h1>
+        <h1 className="title">회원 가입</h1>
         <Form>
             <Input required
             value={formData.name}
@@ -76,11 +83,8 @@ const Join = () => {
             onChange={(e) => setFormData(oldFormData => ({...oldFormData, phoneNum: e.target.value}))}
             type="tel" placeholder="전화번호 '-', 공백 없이 입력" />
         </Form>
-        <div>
-            <Link to='/'>
-            <Button text="취소" />
-            </Link>
-            <p></p>
+        <div className="buttons">
+            <Button text="취소" onClick={()=>{window.location.href = '/'}} />
             <Button text="회원 가입" onClick={() => handleSignUp(formData)} />
         </div>
         </Section>

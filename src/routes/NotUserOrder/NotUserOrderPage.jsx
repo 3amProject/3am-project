@@ -1,8 +1,9 @@
 import styled from "styled-components";
+
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import SideBar from "../../components/SideBar";
-import Button from "../../components/Button";
+import Button from "../../components/Button/Button";
 
 const Section = styled.section`
     height: 100vh;
@@ -15,7 +16,8 @@ const Section = styled.section`
 `;
 const Main = styled.main`
     background-color: beige;
-    width: 50vw;
+    width: 90vw;
+    padding: 0 5vw;
     max-width: 500px;
     & form {
         display: flex;

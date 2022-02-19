@@ -9,7 +9,6 @@ import TotalPrice from '../../components/TotalPrice';
 
 const Section = styled.section`
     height: 100vh;
-    min-height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,23 +18,21 @@ const Section = styled.section`
 const Main = styled.main`
     width: 90vw;
     max-width: 700px;
-    padding: 1em;
+    padding: 20px;
     box-sizing: border-box;
     overflow: scroll;
-    @media screen and (max-width: 64rem) {
-        width: 90vw;
-    }
+
 `;
 const Div = styled.div`
-    margin-top: 5em;
+    margin-top: 50px;
     & .title {
-        font-size: 18px;
+        font-size: 20px;
     }
 `;
 const Calendar = styled.div`
     display: flex;
     justify-content: center;
-    padding-top: 3em;
+    padding-top: 50px;
 `;
 
 const Home = memo(({onClick, isOpen, menus}) => {

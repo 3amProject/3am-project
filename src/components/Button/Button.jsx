@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
 const Btn = styled.button`
-    height: 3rem;
-    width: 100%;
+    padding: 16px 0;
+    margin: 10px;
+    font-size: 14px;
+    color: var(--lightbeige);
     background-color: black;
-    color: white;
-    border-radius: 0.3em;
-    border: none;
-    &: hover {
-        cursor: pointer;
-    } 
+    color: var(--lightbeige);
+    border-radius: 10px;
 `;
 
 const Button = ({text, onClick}) => {

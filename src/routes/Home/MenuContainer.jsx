@@ -2,22 +2,25 @@ import styled from 'styled-components';
 import Menu from './Menu';
 
 const Section = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 50px 0;
     box-sizing: border-box;
-    padding: 3em 0em 3em 0em;
     & .title {
         font-size: 20px;
         font-weight: 700;
         padding-top: 10px;
     }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 const Menus = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
-    margin-top: 40px;
+    margin-top: 50px;
+    @media screen and (max-width: 64rem) {
+        grid-template-columns: 1fr 1fr;
+    }
 `;
 
 const MenuContainer = ({subTitle, title, menus, onClick, showPrice, foodImgs01, foodImgs02}) => {

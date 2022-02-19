@@ -25,6 +25,14 @@ const App = () => {
 
   const [menus, setMenus] = useState([]);
 
+  const formatStringDate = (date) => {
+    if(date === ''){
+        return '';
+    }
+
+    return date.slice(0,10);
+}
+
   useEffect(() => {
     setAuthUser(()=>isLoggedIn());
   },[authUser])
@@ -41,7 +49,8 @@ const App = () => {
       <Route path="/" element={<Home
         onClick={toggleSideBar} 
         isOpen={isOpen}
-        menus={menus} />} />
+        menus={menus}
+        />} />
 
       <Route path="/join" element={<JoinPage
         onClick={toggleSideBar}
@@ -49,52 +58,50 @@ const App = () => {
       />} />
 
       <Route path="/profile" element={<AuthRoute
-        authUser={authUser}
-        element={<ProfilePage
           authUser={authUser}
+        element={<ProfilePage
           onClick={toggleSideBar}
           isOpen={isOpen}
         />}
       />} />
 
       <Route path="/profileEdit" element={<AuthRoute
-        authUser={authUser}
-        element={<ProfileEditPage
           authUser={authUser}
+        element={<ProfileEditPage
           onClick={toggleSideBar}
           isOpen={isOpen}
         />}
       />} />
 
-      <Route path="/cart" element={<CartPage
-        authUser={authUser}
+      <Route path="/cart" element={<AuthRoute
+          authUser={authUser}
+        element={<CartPage
         onClick={toggleSideBar}
         isOpen={isOpen}
+        formatDate={formatStringDate}
+      />}
       />} />
 
       <Route path="/userOrder" element={<AuthRoute
-        authUser={authUser}
-        element={<UserOrderPage
           authUser={authUser}
+        element={<UserOrderPage
           onClick={toggleSideBar}
           isOpen={isOpen}
+          formatDate={formatStringDate}
         />}
       />} />
 
       <Route path="/notUserOrder" element={<NotUserOrderPage
-        authUser={authUser}
         onClick={toggleSideBar}
         isOpen={isOpen}
       />} />
 
       <Route path="/login" element={<LoginPage
-        authUser={authUser}
       />} />
 
       <Route path="/orderType" element={<OrderTypePage
         authUser={authUser}
       />} />
-      
     </Routes>
     </BrowserRouter>
   );

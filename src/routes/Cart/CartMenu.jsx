@@ -3,14 +3,17 @@ import styled from 'styled-components';
 import { deleteProduct, minusProductQty, plusProductQty } from '../../service/noAuthService';
 
 const Li = styled.li`
-    background-color: pink;
-    width: 90%;
+    width: 100%;
+    margin-top : 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5em;
-    & input {
-        width: 1em;
+    & .qtyInput {
+        font-size: 16px;
+        width: 16px;
+        border: none;
+        background-color: transparent;
+        text-align: center;
     }
     & input[type="number"]::-webkit-outer-spin-button,
     & input[type="number"]::-webkit-inner-spin-button {
@@ -66,7 +69,7 @@ const CartMenu = memo(({id, name, qty}) => {
             <p>{name}</p>
             <div>
                 <button onClick={()=>handleQtyMinus()}>-</button>
-                <input type="number" min="1" step="1" value={productQty} readOnly/>
+                <input className="qtyInput" type="number" min="1" step="1" value={productQty} readOnly/>
                 <button onClick={()=>handleQtyPlus()}>+</button>
             </div>
         </Li>

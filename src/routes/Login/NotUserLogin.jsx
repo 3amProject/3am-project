@@ -1,14 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../../components/Button';
+
+import Button from '../../components/Button/Button';
 
 const Div = styled.div`
+    margin: 30px 0;
     display: flex;
     flex-direction: column;
-    margin: 2em 0em 1em 0em;
     & input {
-        height: 2em;
-        margin-bottom: 0.5em;          
+        padding: 5px 0 5px 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        border: 1.5px solid var(--lightgray);
+        border-radius: 10px;          
     }
 `;
 

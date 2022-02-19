@@ -158,9 +158,9 @@ export const getOrderPage = async() => {
 
 
 // 회원 결제
-export const postOrder = async() => {
+export const postOrder = async(userOrderInfo) => {
     try {
-        const res = await customAxios.post('/order/pay');
+        const res = await customAxios.post('/order/pay', userOrderInfo);
         return res;
     } catch (error) {
         console.log(error);

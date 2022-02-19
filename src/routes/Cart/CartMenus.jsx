@@ -2,20 +2,29 @@ import styled from "styled-components";
 import CartMenu from "./CartMenu";
 
 const Div = styled.div`
-    background-color: white;
-    padding: 1em 2em;
+    padding: 30px;
+    margin-bottom: 50px;
+    background-color: var(--lightgray);
+    border-radius: 10px;
+    box-sizing: border-box;
+    & .date {
+        margin: 10px;
+        font-weight: 700;
+    }
+    & .menus {
+        margin: 10px;
+    }
     & ul {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
     @media screen and (max-width: 64rem) {
-        padding: 0.5em;
+        padding: 10px;
     }
 `;
 
 const CartMenus = ({cartItems, date}) => {
-
     if (cartItems.length === 0) {
         return null;
     }
@@ -24,8 +33,8 @@ const CartMenus = ({cartItems, date}) => {
         <>
         {cartItems.length > 1 ?
         (<Div>
-            <p>배송 날짜 : {date}</p>
-            <details> 
+            <p className="date">배송 날짜 : {date}</p>
+            <details className="menus" open> 
                 <summary>메뉴</summary>
                 <ul>
                 {cartItems.map(menu => {
@@ -41,8 +50,8 @@ const CartMenus = ({cartItems, date}) => {
             </details>
         </Div>) :
             (<Div>
-            <p>배송 날짜 : {date}</p>
-            <details> 
+            <p className="date">배송 날짜 : {date}</p>
+            <details className="menus" open> 
                 <summary>메뉴</summary>
                 <ul>
                 <CartMenu

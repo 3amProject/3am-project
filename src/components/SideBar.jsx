@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
+import Button from '../components/Button/Button';
+
 const Section = styled.section`
     ${props =>
         props.isOpen ?
@@ -11,8 +13,8 @@ const Section = styled.section`
         width: 20em;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        background-color: violet;
+        align-items: center;
+        background-color: white;
         cursor:pointer;`
         : css`
         display: none;
@@ -20,45 +22,36 @@ const Section = styled.section`
 `;
 const CloseBtn = styled.button`
     width: 100%;
-    height: 3em;
-    font-size: 1.5rem;
-    border: none;
-    background-color: transparent;
-    padding: 1rem;
+    height: 48px;
+    font-size: 22px;
+    padding: 15px;
+    margin-bottom: 15px;
     display: flex;
     justify-content: flex-end;
-    &: hover {
-        cursor: pointer;
-    }
 `;
 const Div = styled.div`
-    width: 100%;
+    width: 80%;
     display: flex;
-    justify-content: space-around;
-`;
-const Button = styled.button`
-    height: 3rem;
-    width: 8rem;
-    background-color: black;
-    color: white;
-    border-radius: 0.3em;
-    border: none;
-    &: hover {
-        cursor: pointer;
-    }   
+    & button {
+        flex: 1 1;
+        margin: 0 10px;
+    }
 `;
 const Ul = styled.ul`
     width: 80%;
-`;
-const Li = styled.li`
-    width: 100%;
-    margin-top: 1em;
-    padding-top: 1em;
-    border-top: 1px solid black;
-    &: hover {
-        cursor: pointer;
+    & li {
+        width: 100%;
+        height: 20px;
+        margin-top: 50px;
+        padding-top: 10px;
+        border-top: 1px solid black;
+        font-weight: 700;
+        &: hover {
+            cursor: pointer;
+        }
     }
 `;
+
 const SideBar = ({onClick, isOpen}) => {
     return(
         <Section isOpen={isOpen}>
@@ -66,18 +59,14 @@ const SideBar = ({onClick, isOpen}) => {
                 <i className="fas fa-times"></i>
             </CloseBtn>
         <Div>
-            <Link to="/join">
-                <Button>회원 가입</Button>
-            </Link>
-            <Link to="/login">
-                <Button>로그인</Button>
-            </Link>
+            <Button text="회원 가입" onClick={()=>{window.location.href = '/join'}} />
+            <Button text="로그인" onClick={()=>{window.location.href = '/login'}} />
         </Div>
         <Ul>
             <Link to="/">
-                <Li>메뉴</Li>
+                <li>메뉴</li>
             </Link>
-            <Li>고객센터</Li>
+            <li>고객센터</li>
         </Ul>
         </Section>
     );

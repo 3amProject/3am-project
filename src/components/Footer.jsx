@@ -2,17 +2,15 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const FooterComponent = styled.footer`
-    width: 70vw;
+    width: 100vw;
+    max-width: 1000px;
     background-color: var(--beige);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    @media screen and (max-width: 64rem) {
-        width: 90vw;
-    }
 `;
 const Btn = styled.button`
-    padding: 15px;
+    padding: 15px 30px;
     font-size: 24px;
     cursor: pointer;
 `;

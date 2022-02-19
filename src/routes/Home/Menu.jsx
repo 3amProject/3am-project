@@ -1,39 +1,44 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 const Div = styled.div`
-    padding: 1em;
+    border: 1px solid var(--lightgray);
+    padding: 16px;
     & .name {
-        margin: 10px 0;
+        font-size: 16px;
+        margin-top: 20px;
         height: 50px;
         line-height: 20px;
     }
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (max-width: 64rem) {
+        & .name {
+            margin-top: 30px;
+            height: 70px;
+        }
+    }
 `;
 const Footer = styled.div`
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 `;
 const Button = styled.button`
-    width: 2rem;
-    height: 2rem;
-    border: none;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background-color: black;
     color: white;
-    font-size: 1rem;
-    &: hover {
-        cursor: pointer;
-    }
+    font-size: 16px;
 `;
 
 const Menu = ({menu, onClick, showPrice, imgUrl}) => {
     return (
         <Div>
-            <div>
-                <img src={imgUrl} alt="img" />
-            </div>
+            <img src={imgUrl} alt="img" />
             <p className="name">{menu.productName}</p>
             <Footer>
                 <span>{showPrice(menu.productPrice)}</span>
