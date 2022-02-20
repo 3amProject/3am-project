@@ -33,6 +33,11 @@ const Button = styled.button`
     background-color: black;
     color: white;
     font-size: 16px;
+    transition: all .3s;
+    &:hover {
+        transform: scale(1.1);
+        background-color: var(--green);
+    }
 `;
 
 const Menu = ({menu, onClick, showPrice, imgUrl}) => {

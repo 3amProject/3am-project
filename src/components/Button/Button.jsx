@@ -4,10 +4,39 @@ const Btn = styled.button`
     padding: 16px 0;
     margin: 10px;
     font-size: 14px;
-    color: var(--lightbeige);
-    background-color: black;
-    color: var(--lightbeige);
     border-radius: 10px;
+    border: 1.5px solid black;
+    position: relative;
+    overflow: hidden;
+    transition: all .3s;
+    z-index: 1;
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background-color: black;
+      transition: all .3s;
+      z-index: -1;
+    }
+    &:hover {
+        color: var(--lightbeige);
+        font-weight: 700;
+      &:before {
+        height: 100%;
+      }
+    }
 `;
 
 const Button = ({text, onClick}) => {

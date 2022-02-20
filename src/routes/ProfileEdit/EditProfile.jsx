@@ -28,7 +28,7 @@ const Form = styled.form`
             width: 100px;
             box-sizing: border-box;
             padding: 5px 0px 5px 20px;
-            color: var(--gray);
+            color: gray;
             font-weight: 700;
         }
     }
@@ -38,7 +38,7 @@ const Input = styled.input`
     width: 60%;
     padding: 5px 0 5px 10px;
     font-size: 16px;
-    border: 1.5px solid var(--lightgray);
+    border: 1.5px solid var(--gray);
     border-radius: 10px;
 `;
 

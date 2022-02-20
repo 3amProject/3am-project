@@ -12,7 +12,7 @@ const Div = styled.div`
         padding: 5px 0 5px 10px;
         margin-bottom: 10px;
         font-size: 16px;
-        border: 1.5px solid var(--lightgray);
+        border: 1.5px solid var(--gray);
         border-radius: 10px;         
     }
     & .checkForms {

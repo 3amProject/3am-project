@@ -4,6 +4,8 @@ import styled, { css } from 'styled-components';
 import Button from '../components/Button/Button';
 
 const Section = styled.section`
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
     ${props =>
         props.isOpen ?
         css`
@@ -28,6 +30,10 @@ const CloseBtn = styled.button`
     margin-bottom: 15px;
     display: flex;
     justify-content: flex-end;
+    transition: all .3s;
+    &:hover {
+        color: var(--green);
+    }
 `;
 const Div = styled.div`
     width: 80%;
@@ -38,15 +44,19 @@ const Div = styled.div`
     }
 `;
 const Ul = styled.ul`
-    width: 80%;
+    width: 70%;
     & li {
         width: 100%;
         height: 20px;
         margin-top: 50px;
-        padding-top: 10px;
-        border-top: 1px solid black;
-        font-weight: 700;
+        padding-top: 15px;
+        color: gray;
+        border-top: 1.5px solid var(--gray);
+        transition: all .3s;
         &: hover {
+            font-weight: 700;
+            color: black;
+            border-top: 1.5px solid black;
             cursor: pointer;
         }
     }

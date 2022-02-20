@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const HeaderComponent = styled.header`
-    background-color: var(--beige);
     width: 100vw;
     max-width: 1000px;
+    background-color: var(--white);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,8 +14,12 @@ const Div = styled.div`
     font-size: 20px;
     display: flex;
     cursor: pointer;
+    transition: all .3s;
     & .title {
     padding-left: 5px;
+    }
+    &:hover {
+        color: var(--green);
     }
 `;
 

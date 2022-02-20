@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const FooterComponent = styled.footer`
     width: 100vw;
     max-width: 1000px;
-    background-color: var(--beige);
+    background-color: var(--white);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -13,6 +13,10 @@ const Btn = styled.button`
     padding: 15px 30px;
     font-size: 24px;
     cursor: pointer;
+    transition: all .3s;
+    &:hover {
+        color: var(--green);
+    }
 `;
 
 const Footer = ({onClick}) => {

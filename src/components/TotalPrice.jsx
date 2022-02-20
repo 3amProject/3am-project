@@ -5,8 +5,7 @@ const Div = styled.div`
     width: 100vw;
     max-width: 1000px;
     box-sizing: border-box;
-    border-top: 1px solid var(--lightgray);
-    border-left: 1px solid var(--lightgray);
+    border-top: 1px solid black;
     & div {
         padding-left: 30px;
     }
@@ -16,6 +15,11 @@ const Div = styled.div`
         padding: 15px 30px;
         background-color: black;
         cursor: pointer;
+        transition: all .3s;
+        &:hover {
+            font-weight: 700;
+            background-color: var(--green);
+        }
     }
     display: flex;
     justify-content: space-between;
