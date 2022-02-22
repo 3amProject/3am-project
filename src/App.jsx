@@ -29,9 +29,14 @@ const App = () => {
     if(date === ''){
         return '';
     }
-
     return date.slice(0,10);
-}
+  }
+  const showPrice = (price) => {
+    if(price < 1000) return `${price} 원`;
+    let newPrice = String(price).split('').reverse();
+    newPrice.splice(3,0,',');
+    return newPrice.reverse().join('') + ' 원';
+  }
 
   useEffect(() => {
     setAuthUser(()=>isLoggedIn());
@@ -50,6 +55,7 @@ const App = () => {
         onClick={toggleSideBar} 
         isOpen={isOpen}
         menus={menus}
+        showPrice={showPrice}
         />} />
 
       <Route path="/join" element={<JoinPage
@@ -62,6 +68,7 @@ const App = () => {
         element={<ProfilePage
           onClick={toggleSideBar}
           isOpen={isOpen}
+          showPrice={showPrice}
         />}
       />} />
 
@@ -88,12 +95,14 @@ const App = () => {
           onClick={toggleSideBar}
           isOpen={isOpen}
           formatDate={formatStringDate}
+          showPrice={showPrice}
         />}
       />} />
 
       <Route path="/notUserOrder" element={<NotUserOrderPage
         onClick={toggleSideBar}
         isOpen={isOpen}
+        showPrice={showPrice}
       />} />
 
       <Route path="/login" element={<LoginPage

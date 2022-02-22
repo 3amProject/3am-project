@@ -5,16 +5,15 @@ const Li = styled.li`
     display: flex;
     justify-content: space-between;
     & .name {
-        width: 120px;
+        width: 150px;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
     }
-    & .qty {
-        width: 30px;
-    }
-    & .price {
-        width: 60px;
+    @media screen and (max-width: 64rem) {
+        & .name {
+            width: 120px;
+        }
     }
 `;
 

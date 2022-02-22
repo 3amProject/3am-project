@@ -23,12 +23,12 @@ const Main = styled.main`
     }
 `;
 
-const ProfilePage = ({onClick, isOpen}) => {
+const ProfilePage = ({onClick, isOpen, showPrice}) => {
     return (
         <Section>
             <Header />
             <Main>
-                <Profile />
+                <Profile showPrice={showPrice}/>
             </Main>
             <Footer onClick={onClick} isOpen={isOpen} />
         <SideBar onClick={onClick} isOpen={isOpen} />

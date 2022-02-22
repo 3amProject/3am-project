@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { getOrderPage, postOrder } from "../../service/authService";
 
 import Loading from "../../components/Loading";
-import UserOrder from "./UserOrder";
+import UserOrder from "../../components/UserOrder";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import SideBar from "../../components/SideBar";
@@ -62,7 +62,7 @@ const Main = styled.main`
     }
 `;
 
-const UserOrderPage = ({onClick, isOpen, formatDate}) => {
+const UserOrderPage = ({onClick, isOpen, formatDate, showPrice}) => {
     const [userOrderInfo, setUserOrderInfo] = useState();
 
     useEffect(()=>{
@@ -130,13 +130,13 @@ const UserOrderPage = ({onClick, isOpen, formatDate}) => {
                     key={id}
                     name={productName}
                     qty={productQty}
-                    totalPrice={totalPrice}
+                    totalPrice={showPrice(totalPrice)}
                     />)
                 }) :
                 <UserOrder 
                 name={userOrderInfo.cartList[0].productName}
                 qty={userOrderInfo.cartList[0].productQty}
-                totalPrice={userOrderInfo.cartList[0].totalPrice}
+                totalPrice={showPrice(userOrderInfo.cartList[0].totalPrice)}
                 />
             }
             </ul>
@@ -161,7 +161,7 @@ const UserOrderPage = ({onClick, isOpen, formatDate}) => {
             </ul>
             <h1 className="title">3. 결제 정보</h1>
             <p className="text">총 수량 : {getTotalQty()}개</p>
-            <p className="text">총 가격 : {getTotalPrice()}원</p>
+            <p className="text">총 가격 : {showPrice(getTotalPrice())}</p>
             <div className="buttons">
             <Button onClick={()=>handleOrder()} text="결제하기" />
             <Button onClick={()=>{ window.location.href = '/'}} text="취소" />

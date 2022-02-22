@@ -35,7 +35,7 @@ const Calendar = styled.div`
     padding-top: 50px;
 `;
 
-const Home = memo(({onClick, isOpen, menus}) => {
+const Home = memo(({onClick, isOpen, menus, showPrice}) => {
     const salads = menus.slice(0,9);
     const convenFoods = menus.slice(9);
 
@@ -54,18 +54,9 @@ const Home = memo(({onClick, isOpen, menus}) => {
             }else{
                 ++updated[target]['productQty'];
             }
-            console.log(updated);
             return updated;
         });
     }
-
-    const showPrice = (price) => {
-        if(price < 1000) return `${price}원`;
-        let newPrice = String(price).split('').reverse();
-        newPrice.splice(3,0,',');
-        return newPrice.reverse().join('') + '원';
-    }
-
 
     return (
         <Section>

@@ -1,35 +1,55 @@
-import ProfileOrder from "./ProfileOrder";
+import styled from 'styled-components';
+import UserOrder from '../../components/UserOrder';
 
-const ProfileOrders = ({date, orderTotalPrice, orders}) => {
+const Div = styled.div`
+    & .date {
+        font-weight: 700;
+        margin-top: 50px;
+    }
+    & .orderTitle {
+        margin : 10px;
+    }
+    & .order {
+        padding: 20px 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        background-color: var(--lightgray);
+    }
+    & .totalPrice {
+        text-align: end;
+    }
+`;
+
+const ProfileOrders = ({date, totalPrice, orders, showPrice}) => {
     return (
-        <>
-        <p>배송 날짜 : {date}</p>
+        <Div>
+        <p className="date">배송 날짜 : {date}</p>
         <details> 
-            <summary>메뉴</summary>
-            <ul>
+            <summary className="orderTitle">메뉴</summary>
+            <ul className="order">
             {orders.length > 1 ? (
                 orders.map((v)=>{
                     const {productSeq, productName, productQty, totalPrice} = v;
                     return (
-                        <ProfileOrder 
+                        <UserOrder 
                         key={productSeq}
                         name={productName}
                         qty={productQty}
-                        totalPrice={totalPrice}
+                        totalPrice={showPrice(totalPrice)}
                         />
                     );
                 })
             ) : 
-            <ProfileOrder
+            <UserOrder
             name={orders[0].productName}
             qty={orders[0].productQty}
-            totalPrice={orders[0].totalPrice}
+            totalPrice={showPrice(orders[0].totalPrice)}
             />
             }
             </ul>    
         </details>
-        <p>총 가격 : {orderTotalPrice} 원</p>
-        </>
+        <p className="totalPrice">총 가격 : {totalPrice}</p>
+        </Div>
     );
 }
 

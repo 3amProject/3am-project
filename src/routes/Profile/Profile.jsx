@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { signOut } from '../../service/authService';
@@ -20,7 +19,7 @@ const Section = styled.section`
         font-size: 18px;
     }
     & .buttons {
-        margin-bottom: 50px;
+        margin: 50px 0;
         display: flex;
         flex-direction: column;
     }
@@ -43,7 +42,7 @@ const Ul = styled.ul`
 `;
 
 
-const Profile = () => {
+const Profile = ({showPrice}) => {
     const [userData, setUserData] = useState();
 
     const handleLogout = () => {
@@ -52,7 +51,8 @@ const Profile = () => {
     }
     
     useEffect(()=>{
-        getProfile().then((result) => setUserData(result))
+        getProfile().then((result) => {
+            setUserData(result)})
         .catch((error) => console.log(error));
     },[]);
 
@@ -90,20 +90,22 @@ const Profile = () => {
         {userData.orderHistory.length > 0 ?
         (userData.orderHistory.length > 1 ? (
             userData.orderHistory.map((v)=>{
-                const { id, deliveryDate, orderTotalPrice, orders } = userData.orderHistory;
+                const { id, deliveryDate, orderTotalPrice, orders } = v;
                 return (
-                <ProfileOrders
-                key={id}
-                date={deliveryDate}
-                totalPrice={orderTotalPrice}
-                orders={orders}
-                />);
-            })
-        ) : 
+                    <ProfileOrders
+                    key={id}
+                    date={deliveryDate}
+                    totalPrice={showPrice(orderTotalPrice)}
+                    orders={orders}
+                    showPrice={showPrice}
+                    />
+            )})
+        ) :
             <ProfileOrders 
             date={userData.orderHistory[0].deliveryDate}
-            totalPrice={userData.orderHistory[0].orderTotalPrice}
+            totalPrice={showPrice(userData.orderHistory[0].orderTotalPrice)}
             orders={userData.orderHistory[0].orders}
+            showPrice={showPrice}
             />
         ) 
         : <p></p>}

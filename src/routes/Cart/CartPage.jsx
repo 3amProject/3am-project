@@ -25,6 +25,9 @@ const Main = styled.main`
     padding: 0 5vw;
     max-width: 500px;
     overflow: scroll;
+    & .emptyCart {
+        text-align: center;
+    }
     & .title {
         margin: 50px 0;
     }
@@ -78,10 +81,10 @@ const CartPage = ({onClick, isOpen, formatDate}) => {
     <Section>
         <Header/>
         <Main>
-            <h1 className="title">장바구니 목록</h1>
-            {cartItems.length === 0 ? <h3>장바구니가 비었습니다.</h3> :
+            {cartItems.length === 0 ? <h1 className="emptyCart">장바구니가 비었습니다.</h1> :
             (
                 <>
+                <h1 className="title">장바구니 목록</h1>
                 <div className="menus">
                     <CartMenus 
                         cartItems={cartItems} 
