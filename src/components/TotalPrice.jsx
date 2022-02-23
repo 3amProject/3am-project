@@ -1,69 +1,70 @@
-import styled from "styled-components";
-import { putInCart } from "../service/authService";
+import React from 'react';
+import styled from 'styled-components';
+
+import { putInCart } from '../service/authService';
 
 const Div = styled.div`
-    width: 100vw;
-    max-width: 1000px;
-    box-sizing: border-box;
-    border-top: 1px solid black;
-    & div {
-        padding-left: 30px;
+  width: 100vw;
+  max-width: 1000px;
+  box-sizing: border-box;
+  border-top: 1px solid black;
+  & div {
+    padding-left: 30px;
+  }
+  & button {
+    font-size: 16px;
+    color: var(--lightbeige);
+    padding: 15px 30px;
+    background-color: black;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      font-weight: 700;
+      background-color: var(--green);
     }
-    & button {
-        font-size: 16px;
-        color: var(--lightbeige);
-        padding: 15px 30px;
-        background-color: black;
-        cursor: pointer;
-        transition: all .3s;
-        &:hover {
-            font-weight: 700;
-            background-color: var(--green);
-        }
-    }
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-const TotalPrice = ({totalPrice, showPrice, date, selected}) => {
-    const formatDate = (date) => new Intl.DateTimeFormat('fr-CA', {
-        year: "numeric", 
-        month: "2-digit", 
-        day: "2-digit"
+const TotalPrice = ({ totalPrice, showPrice, date, selected }) => {
+  const formatDate = (date) =>
+    new Intl.DateTimeFormat('fr-CA', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
     }).format(date);
-
-    const handlePutInCart = async() => {
-        if(date === undefined){
-            window.alert('날짜를 선택해주세요.');
-            return;
-        }
-        if(selected.length < 1){
-            window.alert('상품을 선택해주세요.');
-            return;
-        }
-
-        const newDate = formatDate(date);
-        selected.forEach((v)=>{
-            // 각 obj에 date 삽입
-            v['deliveryDate'] = newDate;
-        });
-        const cartList = await putInCart(selected);
-        if(cartList && cartList?.data?.code === 'SC003'){
-            window.alert(cartList.data.message);
-            return cartList;
-        }
+  const handlePutInCart = async () => {
+    if (date === undefined) {
+      window.alert('날짜를 선택해주세요.');
+      return;
     }
+    if (selected.length < 1) {
+      window.alert('상품을 선택해주세요.');
+      return;
+    }
+    const newDate = formatDate(date);
+    selected.forEach((v) => {
+      // 각 obj에 date 삽입
+      v['deliveryDate'] = newDate;
+    });
+    const cartList = await putInCart(selected);
+    if (cartList && cartList?.data?.code === 'SC003') {
+      window.alert(cartList.data.message);
+      return cartList;
+    }
+  };
 
-    return (
-        <Div>
-            <div>
-                <span>결제금액 </span>
-                <span>총 {showPrice(totalPrice)}</span>
-            </div>
-            <button onClick={()=>handlePutInCart()}>장바구니에 담기</button>
-        </Div>
-    )
-}
+  return (
+    <Div>
+      <div>
+        <span>결제금액 </span>
+        <span>총 {showPrice(totalPrice)}</span>
+      </div>
+      <button onClick={() => handlePutInCart()}>장바구니에 담기</button>
+    </Div>
+  );
+};
 
 export default TotalPrice;

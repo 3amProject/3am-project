@@ -25,7 +25,8 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "arirbnb",
+      "prettier"
     ]
   },
   "browserslist": {
@@ -42,6 +43,10 @@
   },
   "proxy": "http://localhost:8000",
   "devDependencies": {
-    "eslint-config-react-app": "^7.0.0"
+    "prettier": "^2.5.1",
+    "@babel/eslint-parser": "^7.17.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-prettier": "^4.0.0"
   }
 }
