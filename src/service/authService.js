@@ -127,7 +127,7 @@ export const putInCart = async (selected) => {
   try {
     const res = await customAxios.post(
       '/cart',
-      JSON.stringify({cartList : selected})
+      JSON.stringify({ cartList: selected })
     );
     window.location.href = '/cart';
     return res;

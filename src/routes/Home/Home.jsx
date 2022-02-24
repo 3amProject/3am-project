@@ -35,7 +35,7 @@ const Calendar = styled.div`
   padding-top: 50px;
 `;
 
-const Home = memo(({ onClick, isOpen, menus, showPrice }) => {
+const Home = memo(({ authUser, onClick, isOpen, menus, showPrice }) => {
   const salads = menus.slice(0, 9);
   const convenFoods = menus.slice(9);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -91,6 +91,7 @@ const Home = memo(({ onClick, isOpen, menus, showPrice }) => {
         </Div>
       </Main>
       <TotalPrice
+        authUser={authUser}
         totalPrice={totalPrice}
         showPrice={showPrice}
         date={date}

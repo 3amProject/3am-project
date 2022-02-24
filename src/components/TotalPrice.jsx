@@ -28,7 +28,7 @@ const Div = styled.div`
   align-items: center;
 `;
 
-const TotalPrice = ({ totalPrice, showPrice, date, selected }) => {
+const TotalPrice = ({ authUser, totalPrice, showPrice, date, selected }) => {
   const formatDate = (date) =>
     new Intl.DateTimeFormat('fr-CA', {
       year: 'numeric',
@@ -62,7 +62,13 @@ const TotalPrice = ({ totalPrice, showPrice, date, selected }) => {
         <span>결제금액 </span>
         <span>총 {showPrice(totalPrice)}</span>
       </div>
-      <button onClick={() => handlePutInCart()}>장바구니에 담기</button>
+      <button
+        onClick={() =>
+          authUser ? handlePutInCart() : (window.location.href = '/login')
+        }
+      >
+        장바구니에 담기
+      </button>
     </Div>
   );
 };

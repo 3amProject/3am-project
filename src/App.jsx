@@ -57,6 +57,7 @@ const App = () => {
           path="/"
           element={
             <Home
+              authUser={authUser}
               onClick={toggleSideBar}
               isOpen={isOpen}
               menus={menus}
