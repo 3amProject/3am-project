@@ -18,6 +18,7 @@ const Section = styled.section`
   width: 60%;
   max-width: 500px;
   height: 80%;
+  min-height: 300px;
   background-color: white;
   border-radius: 10px;
   display: flex;
@@ -54,6 +55,7 @@ const Header = styled.header`
 const Main = styled.main`
   width: 80%;
   height: 50%;
+  min-height: 300px;
 `;
 
 const LoginPage = () => {

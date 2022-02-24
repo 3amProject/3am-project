@@ -94,6 +94,7 @@ const Profile = ({ showPrice }) => {
                     key={id}
                     date={deliveryDate}
                     totalPrice={showPrice(orderTotalPrice)}
+                    orders={orders}
                     showPrice={showPrice}
                   />
                 );

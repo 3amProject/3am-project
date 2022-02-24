@@ -13,9 +13,15 @@ const Li = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  & .qtyName {
+    width: 150px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
   & .qtyInput {
     font-size: 16px;
-    width: 16px;
+    width: 30px;
     border: none;
     background-color: transparent;
     text-align: center;
@@ -65,7 +71,7 @@ const CartMenu = memo(({ id, name, qty }) => {
       <button onClick={() => removeProdut()}>
         <i className="fas fa-minus" />
       </button>
-      <p>{name}</p>
+      <p className="qtyName">{name}</p>
       <div>
         <button onClick={() => handleQtyMinus()}>-</button>
         <input
