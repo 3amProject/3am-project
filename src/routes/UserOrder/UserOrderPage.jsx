@@ -90,7 +90,7 @@ const UserOrderPage = ({ onClick, isOpen, formatDate, showPrice }) => {
       const { name, phoneNum, address, email } = userOrderInfo.userInfo;
       const { deliveryDate } = userOrderInfo.cartList[0];
       const { cartList } = userOrderInfo;
-      const orders = cartList.map((v) => {
+      const orderDetails = cartList.map((v) => {
         const obj = {};
         obj.productSeq = v.productSeq;
         obj.productQty = v.productQty;
@@ -102,8 +102,7 @@ const UserOrderPage = ({ onClick, isOpen, formatDate, showPrice }) => {
         phoneNum,
         email,
         deliveryDate: formatDate(deliveryDate),
-        cartList,
-        orders,
+        orderDetails,
       });
       if (res) {
         window.alert('주문이 완료되었습니다 🥳');

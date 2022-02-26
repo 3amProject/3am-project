@@ -22,15 +22,15 @@ const Div = styled.div`
   }
 `;
 
-const ProfileOrders = ({ date, totalPrice, orders, showPrice }) => {
+const ProfileOrders = ({ date, totalPrice, orderDetails, showPrice }) => {
   return (
     <Div>
       <p className="date">배송 날짜 : {date}</p>
       <details>
         <summary className="orderTitle">메뉴</summary>
         <ul className="order">
-          {orders.length > 1 ? (
-            orders.map((v) => {
+          {orderDetails.length > 1 ? (
+            orderDetails.map((v) => {
               const { productSeq, productName, productQty, totalPrice } = v;
               return (
                 <UserOrder
@@ -43,9 +43,9 @@ const ProfileOrders = ({ date, totalPrice, orders, showPrice }) => {
             })
           ) : (
             <UserOrder
-              name={orders[0].productName}
-              qty={orders[0].productQty}
-              totalPrice={showPrice(orders[0].totalPrice)}
+              name={orderDetails[0].productName}
+              qty={orderDetails[0].productQty}
+              totalPrice={showPrice(orderDetails[0].totalPrice)}
             />
           )}
         </ul>

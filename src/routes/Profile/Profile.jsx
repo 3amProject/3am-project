@@ -88,13 +88,13 @@ const Profile = ({ showPrice }) => {
           {userData.orderHistory.length > 0 ? (
             userData.orderHistory.length > 1 ? (
               userData.orderHistory.map((v) => {
-                const { id, deliveryDate, orderTotalPrice, orders } = v;
+                const { id, deliveryDate, orderTotalPrice, orderDetails } = v;
                 return (
                   <ProfileOrders
                     key={id}
                     date={deliveryDate}
                     totalPrice={showPrice(orderTotalPrice)}
-                    orders={orders}
+                    orderDetails={orderDetails}
                     showPrice={showPrice}
                   />
                 );
@@ -103,7 +103,7 @@ const Profile = ({ showPrice }) => {
               <ProfileOrders
                 date={userData.orderHistory[0].deliveryDate}
                 totalPrice={showPrice(userData.orderHistory[0].orderTotalPrice)}
-                orders={userData.orderHistory[0].orders}
+                orderDetails={userData.orderHistory[0].orderDetails}
                 showPrice={showPrice}
               />
             )
