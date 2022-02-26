@@ -65,10 +65,7 @@ const Main = styled.main`
 
 const UserOrderPage = ({ onClick, isOpen, formatDate, showPrice }) => {
   const [userOrderInfo, setUserOrderInfo] = useState();
-
-  useEffect(() => {
-    getOrderPage().then((result) => setUserOrderInfo(result));
-  }, []);
+  const [loading, setLoading] = useState(true);
 
   const getTotalQty = () => {
     if (userOrderInfo.cartList) {
@@ -110,81 +107,87 @@ const UserOrderPage = ({ onClick, isOpen, formatDate, showPrice }) => {
       });
       if (res) {
         window.alert('주문이 완료되었습니다 🥳');
+        window.location.href = '/';
         return res;
       }
     }
   };
 
+  useEffect(() => {
+    getOrderPage().then((result) => setUserOrderInfo(result));
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
-    <>
-      {userOrderInfo ? (
-        <Section>
-          <Header />
-          <Main>
-            <h1 className="title">1. 주문 상품 정보</h1>
-            <p className="text">
-              배송 날짜 : {formatDate(userOrderInfo.cartList[0].deliveryDate)}
-            </p>
-            <ul className="orderInfo">
-              {userOrderInfo.cartList.length > 1 ? (
-                userOrderInfo.cartList.map((v) => {
-                  const { id, productName, productQty, totalPrice } = v;
-                  return (
-                    <UserOrder
-                      key={id}
-                      name={productName}
-                      qty={productQty}
-                      totalPrice={showPrice(totalPrice)}
-                    />
-                  );
-                })
-              ) : (
+    <Section>
+      <Header />
+      <Main>
+        <h1 className="title">1. 주문 상품 정보</h1>
+        <p className="text">
+          배송 날짜 : {formatDate(userOrderInfo.cartList[0].deliveryDate)}
+        </p>
+        <ul className="orderInfo">
+          {userOrderInfo.cartList.length > 1 ? (
+            userOrderInfo.cartList.map((v) => {
+              const { id, productName, productQty, totalPrice } = v;
+              return (
                 <UserOrder
-                  name={userOrderInfo.cartList[0].productName}
-                  qty={userOrderInfo.cartList[0].productQty}
-                  totalPrice={showPrice(userOrderInfo.cartList[0].totalPrice)}
+                  key={id}
+                  name={productName}
+                  qty={productQty}
+                  totalPrice={showPrice(totalPrice)}
                 />
-              )}
-            </ul>
-            <h1 className="title">2. 주문자 정보</h1>
-            <ul className="userInfos">
-              <li className="userInfo">
-                <p className="userTitle">이름 : </p>
-                <p>{userOrderInfo.userInfo.name}</p>
-              </li>
-              <li className="userInfo">
-                <p className="userTitle">주소 : </p>
-                <p>{userOrderInfo.userInfo.address}</p>
-              </li>
-              <li className="userInfo">
-                <p className="userTitle">전화번호 : </p>
-                <p>{userOrderInfo.userInfo.phoneNum}</p>
-              </li>
-              <li className="userInfo">
-                <p className="userTitle">이메일 : </p>
-                <p>{userOrderInfo.userInfo.email}</p>
-              </li>
-            </ul>
-            <h1 className="title">3. 결제 정보</h1>
-            <p className="text">총 수량 : {getTotalQty()}개</p>
-            <p className="text">총 가격 : {showPrice(getTotalPrice())}</p>
-            <div className="buttons">
-              <Button onClick={() => handleOrder()} text="결제하기" />
-              <Button
-                text="취소"
-                onClick={() => {
-                  window.location.href = '/';
-                }}
-              />
-            </div>
-          </Main>
-          <Footer onClick={onClick} isOpen={isOpen} />
-          <SideBar onClick={onClick} isOpen={isOpen} />
-        </Section>
-      ) : (
-        <Loading />
-      )}
-    </>
+              );
+            })
+          ) : (
+            <UserOrder
+              name={userOrderInfo.cartList[0].productName}
+              qty={userOrderInfo.cartList[0].productQty}
+              totalPrice={showPrice(userOrderInfo.cartList[0].totalPrice)}
+            />
+          )}
+        </ul>
+        <h1 className="title">2. 주문자 정보</h1>
+        <ul className="userInfos">
+          <li className="userInfo">
+            <p className="userTitle">이름 : </p>
+            <p>{userOrderInfo.userInfo.name}</p>
+          </li>
+          <li className="userInfo">
+            <p className="userTitle">주소 : </p>
+            <p>{userOrderInfo.userInfo.address}</p>
+          </li>
+          <li className="userInfo">
+            <p className="userTitle">전화번호 : </p>
+            <p>{userOrderInfo.userInfo.phoneNum}</p>
+          </li>
+          <li className="userInfo">
+            <p className="userTitle">이메일 : </p>
+            <p>{userOrderInfo.userInfo.email}</p>
+          </li>
+        </ul>
+        <h1 className="title">3. 결제 정보</h1>
+        <p className="text">총 수량 : {getTotalQty()}개</p>
+        <p className="text">총 가격 : {showPrice(getTotalPrice())}</p>
+        <div className="buttons">
+          <Button onClick={() => handleOrder()} text="결제하기" />
+          <Button
+            text="취소"
+            onClick={() => {
+              window.location.href = '/';
+            }}
+          />
+        </div>
+      </Main>
+      <Footer onClick={onClick} isOpen={isOpen} />
+      <SideBar onClick={onClick} isOpen={isOpen} />
+    </Section>
   );
 };
 
