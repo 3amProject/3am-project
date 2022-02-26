@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import moment from 'moment';
 import { getMenus } from './service/noAuthService';
 
 import AuthRoute from './routes/AuthRoute';
@@ -27,19 +28,18 @@ const App = () => {
 
   const [menus, setMenus] = useState([]);
 
-  const formatStringDate = (date) => {
-    if (date === '') {
-      return '';
-    }
-    return date.slice(0, 10);
-  };
   const showPrice = (price) => {
     if (price < 1000) return `${price} 원`;
     const newPrice = String(price).split('').reverse();
     newPrice.splice(3, 0, ',');
     return `${newPrice.reverse().join('')} 원`;
   };
-
+  const formatDate = (date) => {
+    return moment(date)
+    .add(9,'hours')
+    .format('YYYY'-'MM'-'DD')
+    .slice(0,10);
+  };
   useEffect(() => {
     setAuthUser(() => isLoggedIn());
   }, [authUser]);
@@ -81,6 +81,7 @@ const App = () => {
                   onClick={toggleSideBar}
                   isOpen={isOpen}
                   showPrice={showPrice}
+                  formatDate={formatDate}
                 />
               }
             />
@@ -108,7 +109,7 @@ const App = () => {
                 <CartPage
                   onClick={toggleSideBar}
                   isOpen={isOpen}
-                  formatDate={formatStringDate}
+                  formatDate={formatDate}
                 />
               }
             />
@@ -124,8 +125,8 @@ const App = () => {
                 <UserOrderPage
                   onClick={toggleSideBar}
                   isOpen={isOpen}
-                  formatDate={formatStringDate}
                   showPrice={showPrice}
+                  formatDate={formatDate}
                 />
               }
             />
@@ -139,6 +140,7 @@ const App = () => {
               onClick={toggleSideBar}
               isOpen={isOpen}
               showPrice={showPrice}
+              formatDate={formatDate}
             />
           }
         />

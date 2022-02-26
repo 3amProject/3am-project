@@ -45,6 +45,7 @@ const CartPage = ({ onClick, isOpen, formatDate }) => {
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
   const [deliveryDate, setDeliveryDate] = useState();
+
   const removeAllProdut = async () => {
     if (!window.confirm('장바구니를 비우시겠습니까?')) {
       return;

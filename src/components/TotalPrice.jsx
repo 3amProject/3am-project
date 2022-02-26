@@ -29,12 +29,15 @@ const Div = styled.div`
 `;
 
 const TotalPrice = ({ authUser, totalPrice, showPrice, date, selected }) => {
-  const formatDate = (date) =>
-    new Intl.DateTimeFormat('fr-CA', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    }).format(date);
+  const formatDate = (date) => {
+    return date.toLocaleDateString('ko',{
+      year:'numeric',
+      month:'2-digit',
+      day:'2-digit'
+    })
+    .replace(/(.\s)/g, '-')
+    .replace(/\.$/, '')
+  };
   const handlePutInCart = async () => {
     if (date === undefined) {
       window.alert('날짜를 선택해주세요.');

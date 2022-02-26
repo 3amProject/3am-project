@@ -63,7 +63,7 @@ const Main = styled.main`
   }
 `;
 
-const UserOrderPage = ({ onClick, isOpen, formatDate, showPrice }) => {
+const UserOrderPage = ({ onClick, isOpen, showPrice, formatDate }) => {
   const [userOrderInfo, setUserOrderInfo] = useState();
   const [loading, setLoading] = useState(true);
 

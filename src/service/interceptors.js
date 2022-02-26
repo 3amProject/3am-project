@@ -7,6 +7,7 @@ const onRequest = (config) => {
   if (accessToken) {
     config.headers['Authorization'] = `Bearer ${accessToken}`;
   }
+
   return config;
 };
 
@@ -20,8 +21,7 @@ const onResponse = (response) => {
 
 const onResponseError = async (error) => {
   if (error) {
-    // Access Token was expired
-    if (error.code === 'ER101') {
+    if (error.response.status === 401) {
       const oldRefreshToken = localStorage.getItem('refreshToken');
       const userId = localStorage.getItem('userId');
       try {
@@ -30,8 +30,8 @@ const onResponseError = async (error) => {
           userId,
         });
         const { accessToken, refreshToken } = res.data.data;
-        localStorage.setItem('accessToken', JSON.stringify(accessToken));
-        localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('refreshToken', refreshToken);
         return;
       } catch (_error) {
         return Promise.reject(_error);

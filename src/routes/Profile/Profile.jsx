@@ -41,7 +41,7 @@ const Ul = styled.ul`
   }
 `;
 
-const Profile = ({ showPrice }) => {
+const Profile = ({ showPrice, formatDate }) => {
   const [userData, setUserData] = useState();
   const handleLogout = () => {
     signOut();
@@ -92,7 +92,7 @@ const Profile = ({ showPrice }) => {
                 return (
                   <ProfileOrders
                     key={id}
-                    date={deliveryDate}
+                    date={formatDate(deliveryDate)}
                     totalPrice={showPrice(orderTotalPrice)}
                     orderDetails={orderDetails}
                     showPrice={showPrice}
@@ -101,7 +101,7 @@ const Profile = ({ showPrice }) => {
               })
             ) : (
               <ProfileOrders
-                date={userData.orderHistory[0].deliveryDate}
+                date={formatDate(userData.orderHistory[0].deliveryDate)}
                 totalPrice={showPrice(userData.orderHistory[0].orderTotalPrice)}
                 orderDetails={userData.orderHistory[0].orderDetails}
                 showPrice={showPrice}

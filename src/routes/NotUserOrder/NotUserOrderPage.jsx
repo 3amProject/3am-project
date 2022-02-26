@@ -29,7 +29,7 @@ const Main = styled.main`
   }
 `;
 
-const NotUserOrderPage = ({ onClick, isOpen }) => {
+const NotUserOrderPage = ({ onClick, isOpen, showPrice, formatDate }) => {
   return (
     <Section>
       <Header />
