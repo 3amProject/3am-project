@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Header from '../../components/Header';
@@ -36,6 +37,13 @@ const ProfilePage = ({ onClick, isOpen, showPrice, formatDate }) => {
       <SideBar onClick={onClick} isOpen={isOpen} />
     </Section>
   );
+};
+
+ProfilePage.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  showPrice: PropTypes.func.isRequired,
+  formatDate: PropTypes.func.isRequired,
 };
 
 export default ProfilePage;

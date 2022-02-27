@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Login from '../Login/Login';
@@ -70,31 +70,35 @@ const OrderTypePage = ({ authUser }) => {
     }
   };
 
-  return (
-    <>
-      {authUser ? (
-        (window.location.href = '/userOrder')
-      ) : (
-        <Div>
-          <Section>
-            <Header>
-              <Link to="/">
-                <button className="closeBtn">
-                  <i className="fas fa-times" />
-                </button>
-              </Link>
-              <h1 className="title">로그인</h1>
-              <div className="buttons">
-                <button onClick={handleShow}>회원</button>
-                <button onClick={handleShow}>비회원</button>
-              </div>
-            </Header>
-            <Main>{isUser ? <Login /> : <NotUserOrder />}</Main>
-          </Section>
-        </Div>
-      )}
-    </>
+  return authUser ? (
+    (window.location.href = '/userOrder')
+  ) : (
+    <Div>
+      <Section>
+        <Header>
+          <Link to="/">
+            <button type="button" className="closeBtn">
+              <i className="fas fa-times" />
+            </button>
+          </Link>
+          <h1 className="title">로그인</h1>
+          <div className="buttons">
+            <button type="button" onClick={handleShow}>
+              회원
+            </button>
+            <button type="button" onClick={handleShow}>
+              비회원
+            </button>
+          </div>
+        </Header>
+        <Main>{isUser ? <Login /> : <NotUserOrder />}</Main>
+      </Section>
+    </Div>
   );
+};
+
+OrderTypePage.propTypes = {
+  authUser: PropTypes.bool.isRequired,
 };
 
 export default OrderTypePage;

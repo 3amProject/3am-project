@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Header from '../../components/Header';
@@ -36,6 +37,11 @@ const ProfileEditPage = ({ onClick, isOpen }) => {
       <SideBar onClick={onClick} isOpen={isOpen} />
     </Section>
   );
+};
+
+ProfileEditPage.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
 };
 
 export default ProfileEditPage;

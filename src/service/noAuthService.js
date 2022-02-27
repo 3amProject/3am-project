@@ -1,4 +1,4 @@
-import { customAxios } from './customAxios';
+import customAxios from './customAxios';
 
 // 홈 메뉴 받아오기
 export const getMenus = async () => {
@@ -6,7 +6,7 @@ export const getMenus = async () => {
     const res = await customAxios.get('/');
     return await res.data.data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -16,7 +16,7 @@ export const plusProductQty = async (productSeq) => {
     const res = await customAxios.put(`/cart/product/plus/${productSeq}`);
     return res;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -26,7 +26,7 @@ export const minusProductQty = async (productSeq) => {
     const res = await customAxios.put(`/cart/product/minus/${productSeq}`);
     return res;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -36,7 +36,7 @@ export const deleteProduct = async (cartSeq) => {
     const res = await customAxios.delete(`/cart/delete/${cartSeq}`);
     return res;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -46,6 +46,6 @@ export const deleteAllProduct = async () => {
     const res = await customAxios.delete('/cart/deleteAll');
     return res;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };

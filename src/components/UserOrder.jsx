@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Li = styled.li`
@@ -26,6 +27,12 @@ const UserOrder = ({ name, qty, totalPrice }) => {
       <p className="price">{totalPrice}</p>
     </Li>
   );
+};
+
+UserOrder.propTypes = {
+  name: PropTypes.string.isRequired,
+  qty: PropTypes.number.isRequired,
+  totalPrice: PropTypes.string.isRequired,
 };
 
 export default UserOrder;

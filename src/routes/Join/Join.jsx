@@ -49,7 +49,7 @@ const Join = () => {
       'phoneNum',
     ]);
     if (userInfo) {
-      if (!!userInfo.error) {
+      if (userInfo.error) {
         window.alert(userInfo.error);
       } else {
         window.alert('회원가입이 완료되었습니다 👏');

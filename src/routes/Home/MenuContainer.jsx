@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Menu from './Menu';
@@ -55,6 +56,21 @@ const MenuContainer = ({
       </Menus>
     </Section>
   );
+};
+
+MenuContainer.propTypes = {
+  subTitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  menus: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onClick: PropTypes.func.isRequired,
+  showPrice: PropTypes.func.isRequired,
+  foodImgs01: PropTypes.arrayOf(PropTypes.number),
+  foodImgs02: PropTypes.arrayOf(PropTypes.number),
+};
+
+MenuContainer.defaultProps = {
+  foodImgs01: null,
+  foodImgs02: null,
 };
 
 export default MenuContainer;

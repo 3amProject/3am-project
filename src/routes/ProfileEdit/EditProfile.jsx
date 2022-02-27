@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { putProfileEdit, signOut } from '../../service/authService';
-import { getProfileEdit } from '../../service/authService';
+import {
+  putProfileEdit,
+  signOut,
+  getProfileEdit,
+} from '../../service/authService';
 
 import Button from '../../components/Button/Button';
 
@@ -67,7 +70,7 @@ const EditProfile = () => {
     ]);
     if (res) {
       console.log(res);
-      if (!!res.error) {
+      if (res.error) {
         window.alert(res.error);
       } else {
         window.alert('회원 정보 수정 완료 👍');

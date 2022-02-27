@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { setUpInterceptorsTo } from './interceptors';
+import setUpInterceptorsTo from './interceptors';
 
-export const customAxios = setUpInterceptorsTo(
+const customAxios = setUpInterceptorsTo(
   axios.create({
     baseURL: 'http://localhost:8000',
     headers: {
@@ -11,3 +11,5 @@ export const customAxios = setUpInterceptorsTo(
     withCredentials: true,
   })
 );
+
+export default customAxios;

@@ -1,4 +1,5 @@
 import React, { memo, useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import ReactCalendar from '../../components/Calendar';
@@ -102,5 +103,13 @@ const Home = memo(({ authUser, onClick, isOpen, menus, showPrice }) => {
     </Section>
   );
 });
+
+Home.propTypes = {
+  authUser: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  menus: PropTypes.arrayOf(PropTypes.object).isRequired,
+  showPrice: PropTypes.func.isRequired,
+};
 
 export default Home;

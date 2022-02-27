@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { putInCart } from '../service/authService';
@@ -30,16 +31,17 @@ const Div = styled.div`
 
 const TotalPrice = ({ authUser, totalPrice, showPrice, date, selected }) => {
   const formatDate = (date) => {
-    return date.toLocaleDateString('ko',{
-      year:'numeric',
-      month:'2-digit',
-      day:'2-digit'
-    })
-    .replace(/(.\s)/g, '-')
-    .replace(/\.$/, '')
+    return date
+      .toLocaleDateString('ko', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      })
+      .replace(/(.\s)/g, '-')
+      .replace(/\.$/, '');
   };
   const handlePutInCart = async () => {
-    if (date === undefined) {
+    if (!date) {
       window.alert('날짜를 선택해주세요.');
       return;
     }
@@ -50,12 +52,11 @@ const TotalPrice = ({ authUser, totalPrice, showPrice, date, selected }) => {
     const newDate = formatDate(date);
     selected.forEach((v) => {
       // 각 obj에 date 삽입
-      v['deliveryDate'] = newDate;
+      v.deliveryDate = newDate;
     });
     const cartList = await putInCart(selected);
     if (cartList && cartList?.data?.code === 'SC003') {
       window.alert(cartList.data.message);
-      return cartList;
     }
   };
 
@@ -66,6 +67,7 @@ const TotalPrice = ({ authUser, totalPrice, showPrice, date, selected }) => {
         <span>총 {showPrice(totalPrice)}</span>
       </div>
       <button
+        type="button"
         onClick={() =>
           authUser ? handlePutInCart() : (window.location.href = '/login')
         }
@@ -74,6 +76,22 @@ const TotalPrice = ({ authUser, totalPrice, showPrice, date, selected }) => {
       </button>
     </Div>
   );
+};
+
+TotalPrice.propTypes = {
+  authUser: PropTypes.bool,
+  totalPrice: PropTypes.number,
+  showPrice: PropTypes.func,
+  date: PropTypes.string,
+  selected: PropTypes.arrayOf(PropTypes.object),
+};
+
+TotalPrice.defaultProps = {
+  authUser: false,
+  totalPrice: 0,
+  showPrice: null,
+  date: null,
+  selected: [],
 };
 
 export default TotalPrice;

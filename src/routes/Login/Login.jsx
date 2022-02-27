@@ -42,8 +42,9 @@ const Login = () => {
   });
   const handleLogin = async (user) => {
     const data = await signIn(user);
-    if (!!data.error) {
-      return window.alert(data.error);
+    if (data.error) {
+      window.alert(data.error);
+      return;
     }
     window.location.href = '/';
   };
@@ -91,9 +92,9 @@ const Login = () => {
       <Footer>
         <Button text="로그인" onClick={() => handleLogin(formData)} />
         <div className="buttons">
-          <button>아이디 찾기</button>
+          <button type="button">아이디 찾기</button>
           <span />
-          <button>비밀번호 찾기</button>
+          <button type="button">비밀번호 찾기</button>
         </div>
         <Button
           text="회원 가입"

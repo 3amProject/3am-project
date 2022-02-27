@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import {
@@ -68,12 +69,14 @@ const CartMenu = memo(({ id, name, qty }) => {
   }, [qty]);
   return (
     <Li>
-      <button onClick={() => removeProdut()}>
+      <button type="button" onClick={() => removeProdut()}>
         <i className="fas fa-minus" />
       </button>
       <p className="qtyName">{name}</p>
       <div>
-        <button onClick={() => handleQtyMinus()}>-</button>
+        <button type="button" onClick={() => handleQtyMinus()}>
+          -
+        </button>
         <input
           className="qtyInput"
           type="number"
@@ -82,10 +85,24 @@ const CartMenu = memo(({ id, name, qty }) => {
           value={productQty}
           readOnly
         />
-        <button onClick={() => handleQtyPlus()}>+</button>
+        <button type="button" onClick={() => handleQtyPlus()}>
+          +
+        </button>
       </div>
     </Li>
   );
 });
+
+CartMenu.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  qty: PropTypes.number,
+};
+
+CartMenu.defaultProps = {
+  id: null,
+  name: null,
+  qty: null,
+};
 
 export default CartMenu;

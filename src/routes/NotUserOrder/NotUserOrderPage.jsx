@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Header from '../../components/Header';
@@ -29,7 +30,7 @@ const Main = styled.main`
   }
 `;
 
-const NotUserOrderPage = ({ onClick, isOpen, showPrice, formatDate }) => {
+const NotUserOrderPage = ({ onClick, isOpen }) => {
   return (
     <Section>
       <Header />
@@ -46,7 +47,7 @@ const NotUserOrderPage = ({ onClick, isOpen, showPrice, formatDate }) => {
           <label htmlFor="email">이메일</label>
           <input name="email" type="email" />
         </form>
-        <h1>결제 정보</h1>   
+        <h1>결제 정보</h1>
         <p>총 수량: 개</p>
         <p>총 가격: 원</p>
         <Button text="결제하기" />
@@ -56,6 +57,11 @@ const NotUserOrderPage = ({ onClick, isOpen, showPrice, formatDate }) => {
       <SideBar onClick={onClick} isOpen={isOpen} />
     </Section>
   );
+};
+
+NotUserOrderPage.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
 };
 
 export default NotUserOrderPage;

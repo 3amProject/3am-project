@@ -73,14 +73,18 @@ const LoginPage = () => {
       <Section>
         <Header>
           <Link to="/">
-            <button className="closeBtn">
+            <button type="button" className="closeBtn">
               <i className="fas fa-times" />
             </button>
           </Link>
           <h1 className="title">로그인</h1>
           <div className="buttons">
-            <button onClick={handleShow}>회원</button>
-            <button onClick={handleShow}>비회원</button>
+            <button type="button" onClick={handleShow}>
+              회원
+            </button>
+            <button type="button" onClick={handleShow}>
+              비회원
+            </button>
           </div>
         </Header>
         <Main>{isForUser ? <Login /> : <NotUserLogin />}</Main>

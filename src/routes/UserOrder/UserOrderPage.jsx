@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { getOrderPage, postOrder } from '../../service/authService';
@@ -68,47 +69,42 @@ const UserOrderPage = ({ onClick, isOpen, showPrice, formatDate }) => {
   const [loading, setLoading] = useState(true);
 
   const getTotalQty = () => {
-    if (userOrderInfo.cartList) {
-      const list = userOrderInfo.cartList.map((v) => v.productQty);
-      const sum = list.reduce((prev, curr) => prev + curr);
-      return sum;
-    }
+    const list = userOrderInfo.cartList.map((v) => v.productQty);
+    const sum = list.reduce((prev, curr) => prev + curr);
+    return sum;
   };
 
   const getTotalPrice = () => {
-    if (userOrderInfo.cartList) {
-      const list = userOrderInfo.cartList.map((v) => v.totalPrice);
-      const sum = list.reduce((prev, curr) => prev + curr);
-      return sum;
-    }
+    const list = userOrderInfo.cartList.map((v) => v.totalPrice);
+    const sum = list.reduce((prev, curr) => prev + curr);
+    return sum;
   };
 
   const handleOrder = async () => {
     if (!window.confirm('결제를 진행하시겠습니까?')) {
       alert('결제를 취소하였습니다');
-    } else {
-      const { name, phoneNum, address, email } = userOrderInfo.userInfo;
-      const { deliveryDate } = userOrderInfo.cartList[0];
-      const { cartList } = userOrderInfo;
-      const orderDetails = cartList.map((v) => {
-        const obj = {};
-        obj.productSeq = v.productSeq;
-        obj.productQty = v.productQty;
-        return obj;
-      });
-      const res = await postOrder({
-        username: name,
-        address,
-        phoneNum,
-        email,
-        deliveryDate: formatDate(deliveryDate),
-        orderDetails,
-      });
-      if (res) {
-        window.alert('주문이 완료되었습니다 🥳');
-        window.location.href = '/';
-        return res;
-      }
+      return;
+    }
+    const { name, phoneNum, address, email } = userOrderInfo.userInfo;
+    const { deliveryDate } = userOrderInfo.cartList[0];
+    const { cartList } = userOrderInfo;
+    const orderDetails = cartList.map((v) => {
+      const obj = {};
+      obj.productSeq = v.productSeq;
+      obj.productQty = v.productQty;
+      return obj;
+    });
+    const res = await postOrder({
+      username: name,
+      address,
+      phoneNum,
+      email,
+      deliveryDate: formatDate(deliveryDate),
+      orderDetails,
+    });
+    if (res) {
+      window.alert('주문이 완료되었습니다 🥳');
+      window.location.href = '/';
     }
   };
 
@@ -188,6 +184,13 @@ const UserOrderPage = ({ onClick, isOpen, showPrice, formatDate }) => {
       <SideBar onClick={onClick} isOpen={isOpen} />
     </Section>
   );
+};
+
+UserOrderPage.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  showPrice: PropTypes.func.isRequired,
+  formatDate: PropTypes.func.isRequired,
 };
 
 export default UserOrderPage;

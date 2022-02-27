@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
@@ -92,6 +93,11 @@ const SideBar = ({ onClick, isOpen }) => {
       </Ul>
     </Section>
   );
+};
+
+SideBar.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
 };
 
 export default SideBar;

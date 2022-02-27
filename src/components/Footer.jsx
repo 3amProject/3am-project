@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -38,6 +39,10 @@ const Footer = ({ onClick }) => {
       </Link>
     </FooterComponent>
   );
+};
+
+Footer.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Footer;

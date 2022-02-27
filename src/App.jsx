@@ -23,7 +23,7 @@ const App = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const toggleSideBar = () => {
-    setIsOpen(isOpen => !isOpen);
+    setIsOpen((isOpen) => !isOpen);
   };
 
   const [menus, setMenus] = useState([]);
@@ -36,9 +36,9 @@ const App = () => {
   };
   const formatDate = (date) => {
     return moment(date)
-    .add(9,'hours')
-    .format('YYYY'-'MM'-'DD')
-    .slice(0,10);
+      .add(9, 'hours')
+      .format('YYYY' - 'MM' - 'DD')
+      .slice(0, 10);
   };
   useEffect(() => {
     setAuthUser(() => isLoggedIn());
@@ -135,14 +135,7 @@ const App = () => {
 
         <Route
           path="/notUserOrder"
-          element={
-            <NotUserOrderPage
-              onClick={toggleSideBar}
-              isOpen={isOpen}
-              showPrice={showPrice}
-              formatDate={formatDate}
-            />
-          }
+          element={<NotUserOrderPage onClick={toggleSideBar} isOpen={isOpen} />}
         />
 
         <Route path="/login" element={<LoginPage />} />

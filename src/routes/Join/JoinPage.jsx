@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Footer from '../../components/Footer';
@@ -36,6 +37,11 @@ const JoinPage = ({ onClick, isOpen }) => {
       <SideBar onClick={onClick} isOpen={isOpen} />
     </Section>
   );
+};
+
+JoinPage.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
 };
 
 export default JoinPage;

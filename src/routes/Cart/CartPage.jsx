@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import { getCart } from '../../service/authService';
@@ -102,6 +103,12 @@ const CartPage = ({ onClick, isOpen, formatDate }) => {
       <SideBar onClick={onClick} isOpen={isOpen} />
     </Section>
   );
+};
+
+CartPage.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  formatDate: PropTypes.func.isRequired,
 };
 
 export default CartPage;

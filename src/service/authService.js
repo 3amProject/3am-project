@@ -1,4 +1,4 @@
-import { customAxios } from './customAxios';
+import customAxios from './customAxios';
 
 // 로그인
 export const signIn = async (user) => {
@@ -23,8 +23,8 @@ export const signIn = async (user) => {
 
     return res;
   } catch (_error) {
-    console.log(_error);
     window.alert(_error);
+    return _error;
   }
 };
 
@@ -39,6 +39,7 @@ export const signUp = async (user, required = []) => {
       if (user[k] === '' || !user[k]) {
         validate = false;
       }
+      return validate;
     });
 
     if (!validate) {
@@ -60,7 +61,7 @@ export const signUp = async (user, required = []) => {
     );
     return data;
   } catch (_error) {
-    console.log(_error);
+    return _error;
   }
 };
 
@@ -79,7 +80,7 @@ export const getProfile = async () => {
     const res = await customAxios.get('/user/myPage');
     return await res.data.data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -89,7 +90,7 @@ export const getProfileEdit = async () => {
     const res = await customAxios.get('/user/profile/update');
     return await res.data.data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -105,6 +106,7 @@ export const putProfileEdit = async (user, required = []) => {
       if (user[k] === '' || !user[k]) {
         validate = false;
       }
+      return validate;
     });
 
     if (!validate) {
@@ -118,7 +120,7 @@ export const putProfileEdit = async (user, required = []) => {
     );
     return res;
   } catch (_error) {
-    console.log(_error);
+    return _error;
   }
 };
 
@@ -132,7 +134,7 @@ export const putInCart = async (selected) => {
     window.location.href = '/cart';
     return res;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -142,7 +144,7 @@ export const getCart = async () => {
     const res = await customAxios.get('/cart');
     return await res.data.data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -152,7 +154,7 @@ export const getOrderPage = async () => {
     const res = await customAxios.get('/order');
     return await res.data.data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -162,6 +164,6 @@ export const postOrder = async (userOrderInfo) => {
     const res = await customAxios.post('/order/pay', userOrderInfo);
     return res;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };

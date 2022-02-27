@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import UserOrder from '../../components/UserOrder';
@@ -53,6 +54,13 @@ const ProfileOrders = ({ date, totalPrice, orderDetails, showPrice }) => {
       <p className="totalPrice">총 가격 : {totalPrice}</p>
     </Div>
   );
+};
+
+ProfileOrders.propTypes = {
+  date: PropTypes.string.isRequired,
+  totalPrice: PropTypes.string.isRequired,
+  orderDetails: PropTypes.arrayOf(PropTypes.object).isRequired,
+  showPrice: PropTypes.func.isRequired,
 };
 
 export default ProfileOrders;

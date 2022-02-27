@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Div = styled.div`
@@ -54,6 +55,20 @@ const Menu = ({ menu, onClick, showPrice, imgUrl }) => {
       </Footer>
     </Div>
   );
+};
+
+Menu.propTypes = {
+  menu: PropTypes.shape({
+    id: PropTypes.number,
+    productName: PropTypes.string,
+    productPrice: PropTypes.string,
+    productQty: PropTypes.string,
+    category1: PropTypes.string,
+    category2: PropTypes.string,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
+  showPrice: PropTypes.func.isRequired,
+  imgUrl: PropTypes.string.isRequired,
 };
 
 export default Menu;

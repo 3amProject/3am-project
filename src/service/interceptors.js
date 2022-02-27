@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:8000';
 const onRequest = (config) => {
   const accessToken = localStorage.getItem('accessToken');
   if (accessToken) {
-    config.headers['Authorization'] = `Bearer ${accessToken}`;
+    config.headers.Authorization = `Bearer ${accessToken}`;
   }
 
   return config;
@@ -34,15 +34,16 @@ const onResponseError = async (error) => {
         localStorage.setItem('refreshToken', refreshToken);
         return;
       } catch (_error) {
-        return Promise.reject(_error);
+        console.log(Promise.reject(_error));
       }
     }
   }
-  return Promise.reject(error);
 };
 
-export const setUpInterceptorsTo = (axiosInstance) => {
+const setUpInterceptorsTo = (axiosInstance) => {
   axiosInstance.interceptors.request.use(onRequest, onRequestError);
   axiosInstance.interceptors.response.use(onResponse, onResponseError);
   return axiosInstance;
 };
+
+export default setUpInterceptorsTo;
