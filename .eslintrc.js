@@ -30,7 +30,7 @@ module.exports = {
         // jsx에서 js 파일 가져오기 허용
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         // 확장자명 명명 import 허용
-        'import/extensions': [ 'off', ]
+        'import/extensions': [ 'off' ]
     },
     extends: ['airbnb', 'plugin:prettier/recommended'],
     parser: '@babel/eslint-parser'
