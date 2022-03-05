@@ -1,20 +1,20 @@
 # 🚚 새벽 세시
 
-# 1. 서비스 소개(Introduction)
+## 1. 서비스 소개(Introduction)
 
 식단 배송 서비스 [새벽다섯시](https://www.5am.co.kr/shop/calendar_shop.php)를 클론코딩하여, ‘새벽 세시’ 웹 서비스를 구현하는 프로젝트
 
 <br>
 
-# 2. 사용 스택 & 개발 환경(Stack)
+## 2. 사용 스택 & 개발 환경(Stack)
 
-## Front-end
+### Front-end
 
 - JavaScript(ES6)
 - React / React Router
 - Styled Component
 
-## Back-end
+### Back-end
 
 - Java
 - Spring Boot
@@ -22,7 +22,7 @@
 - MySQL
 - JSON Web Token
 
-## Tools
+### Tools
 
 - STS4
 - VSCode
@@ -30,13 +30,13 @@
 - Git / Github
 - Notion, Slack
 
-## OS
+### OS
 
 - Windows, MacOS
 
 <br>
 
-# 3. 주요 기능(Features)
+## 3. 주요 기능(Features)
 
 - 회원가입 / 로그인
 - 회원 정보 조회 및 수정
@@ -48,9 +48,13 @@
 
 <br>
 
-# 4. 기술적 고민들(Challenges)
+## 4. ERD
 
-# 5. 배포(Preview)
+![image](https://user-images.githubusercontent.com/62868465/156756218-d4347393-d418-4376-baa3-3a97806527f8.png)
+
+## 5. 기술적 고민들(Challenges)
+
+## 6. 배포(Preview)
 
 - 로그인 / 회원 정보 조회 화면
 
