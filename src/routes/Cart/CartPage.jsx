@@ -67,7 +67,7 @@ const CartPage = ({ onClick, isOpen, formatDate }) => {
         setLoading(false);
       }, 500);
     });
-  }, []);
+  }, [ formatDate ]);
 
   if (loading) {
     return <Loading />;

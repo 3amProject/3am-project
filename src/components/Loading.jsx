@@ -12,7 +12,7 @@ const Div = styled.div`
 const Loading = () => {
   return (
     <Div>
-      <h1>Loading...👽</h1>
+      <h1>Loading...<span role="img" aria-label="alien">👽</span></h1>
     </Div>
   );
 };
