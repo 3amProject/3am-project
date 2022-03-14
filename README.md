@@ -1,5 +1,9 @@
 # 🚚 새벽 세시
 
+## [WIKI - 프로젝트 개요](https://github.com/3amProject/3am-project-fe/wiki)
+
+<br>
+
 ## 1. 서비스 소개(Introduction)
 
 식단 배송 서비스 [새벽다섯시](https://www.5am.co.kr/shop/calendar_shop.php)를 클론코딩하여, ‘새벽 세시’ 웹 서비스를 구현하는 프로젝트
@@ -52,9 +56,9 @@
 
 ![image](https://user-images.githubusercontent.com/62868465/156756218-d4347393-d418-4376-baa3-3a97806527f8.png)
 
-## 5. 기술적 고민들(Challenges)
+<br>
 
-## 6. 배포(Preview)
+## 5. 배포(Preview)
 
 - 로그인 / 회원 정보 조회 화면
 
